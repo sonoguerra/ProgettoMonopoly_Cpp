@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
-#include "../include/board.h"
+#include "../include/square.h"
 
 int main() {
-
-    std::cout << convert_position(1) << std::endl;
-    std::cout << convert_position(11) << std::endl;
-    std::cout << convert_position(23) << std::endl;
+    Square s("E");
+    s.add_player(1);
+    std::cout << s;
+    s.remove_player(1);
+    std::cout << s;
     return 0;
 }

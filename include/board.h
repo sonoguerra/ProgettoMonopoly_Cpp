@@ -1,12 +1,19 @@
+#ifndef BOARD_H
+#define BOARD_H
 #include <vector>
 #include <string>
 
+#include "square.h"
 
-/*class Board {
+class Board {
     public:
-        std::vector<std::string> get_squares();
+        Board();
+        std::vector<Square> get_squares();
     private:
-        std::vector<std::string> squares; //vector<square>?
-};*/
+        std::vector<Square> squares;
+        std::vector<int> positions;
+};
 
 std::string convert_position(int i);
+int convert_position(std::string pos);
+#endif
