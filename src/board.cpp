@@ -85,6 +85,7 @@ void Board::delete_property(int i) {
     squares.at(i).delete_property();
 }
 
+//corretto per come viene visualizzato il tabellone adesso ma non per come dovrebbe essere fatto
 std::string convert_position(int pos) {
     std::string position;
     if (pos < 0) throw std::invalid_argument("Invalid argument: specified position must be a positive integer.");
@@ -106,7 +107,7 @@ int convert_position(std::string pos) {
     return position;
 }
 
-//da rifare in modo che stampi le caselle partendo da in basso a destra
+//da rifare in modo che stampi le caselle partendo da in basso a destra e nell'ordine corretto
 std::ostream& operator<<(std::ostream& o, const Board& b) {
     int i;
     for (i = 0; i < 8; i++) {
