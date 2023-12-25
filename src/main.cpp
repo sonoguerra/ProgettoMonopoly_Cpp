@@ -1,12 +1,14 @@
 #include <iostream>
 #include <string>
-#include "../include/square.h"
+#include "../include/board.h"
 
 int main() {
-    Square s("E");
-    s.add_player(1);
-    std::cout << s;
-    s.remove_player(1);
-    std::cout << s;
+    Board b;
+    b.move(1, 8);
+    std::cout << b << std::endl;
+    b.upgrade_terrain(10);
+    std::cout << b << std::endl;
+    b.delete_property(10);
+    std::cout << b;
     return 0;
 }

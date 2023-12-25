@@ -30,7 +30,7 @@ void Square::add_player(int player) {
 
 void Square::remove_player(int player) {
     int pos = content.find(std::to_string(player));
-    content.erase(pos, pos);
+    content.erase(pos, 1);
 }
 
 void Square::upgrade() {
@@ -48,7 +48,7 @@ void Square::upgrade() {
 
 
 void Square::delete_property() {
-    if (is_hotel_built() || is_house_built) content.erase(2, 2);
+    if (is_hotel_built() || is_house_built()) content.erase(2, 1);
 }
 
 std::ostream& operator<<(std::ostream& o, const Square& s) {
