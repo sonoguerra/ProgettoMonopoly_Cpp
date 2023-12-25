@@ -72,6 +72,7 @@ int Board::move(int player, int dice) {                     //questa funzione no
     squares.at(start).remove_player(player);
     int end = (start + dice) % 28;
     squares.at(end).add_player(player);
+    positions[player] = end;
     //if (start > 15 && end >= 0) Player.give(20);
     return end;                                             //ritorna la posizione della casella dove finisce il giocatore, quindi dopo questa se si vuole vedere lo stato della casella bisogna chiamare square_at(end)
 }
