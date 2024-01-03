@@ -1,0 +1,2 @@
+/usr/bin/ar qc libExchangeMoney.a CMakeFiles/ExchangeMoney.dir/src/exchangeMoney.cpp.o
+/usr/bin/ranlib libExchangeMoney.a
