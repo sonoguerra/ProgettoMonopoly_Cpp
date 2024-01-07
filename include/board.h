@@ -12,8 +12,12 @@ class Board {
         std::vector<int> get_positions() const;
         Square square_at(int i) const;
         int move(int player, int dice); //da sostituire int con Player
-        void upgrade_terrain(int i); //questo metodo e il seguente potrebbero non servire, ma in teoria così evitano il dover ritornare una reference a Square
+        void buy_property(int i, int player);
+        void upgrade_property(int i); //questo metodo e il seguente potrebbero non servire, ma in teoria così evitano il dover ritornare una reference a Square
         void delete_property(int i);
+        void buy_property(std::string pos, int player);
+        void upgrade_property(std::string pos);
+        void delete_property(std::string pos);
     private:
         std::vector<Square> squares;
         std::vector<int> positions;

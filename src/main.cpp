@@ -4,12 +4,12 @@
 
 int main() {
     Board b;
-    b.move(1, 8);
-    b.move(1, 8);
     std::cout << b << std::endl;
-    b.upgrade_terrain(10);
-    std::cout << b << std::endl;
-    b.delete_property(10);
-    std::cout << b;
+
+    std::cout << "TUTTE LE CASELLE" << std::endl;
+    std::vector<Square> array = b.get_board();
+    for (int i = 0; i < 28; i++) {
+        std::cout << array.at(i) << "\t";
+    }
     return 0;
 }
