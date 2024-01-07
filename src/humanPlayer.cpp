@@ -1,11 +1,11 @@
 #include "../include/humanPlayer.h"
 
-humanPlayer::humanPlayer(){
+HumanPlayer::HumanPlayer(){
 	savings=100;
 	int id=1;
 }
 
-bool humanPlayer::buyout(Square& square){
+bool HumanPlayer::buyout(Square& square){
 	
 	properties.push_back(square);
 	//exchangeMoney sottrai soldi

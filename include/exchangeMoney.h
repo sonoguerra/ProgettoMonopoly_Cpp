@@ -9,8 +9,8 @@ public:
 	static int square_value(const Square& square);
 	static int building_cost(const Square& square);	
 	static int square_price(const Square& square);	
-	static void pay_someone(player& p1,player& p2,const Square& square);
-	static void passing_prize(player& p1);
+	static void pay_someone(Player& p1,Player& p2,const Square& square);
+	static void passing_prize(Player& p1);
 	
 
 

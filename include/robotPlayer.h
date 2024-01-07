@@ -3,10 +3,10 @@
 #include "../include/player.h"
 #include "../include/square.h"
 
-class robotPlayer:public player{
+class RobotPlayer:public Player{
 public:
-	robotPlayer(int id);	
-	robotPlayer& operator=(const robotPlayer&);
+	RobotPlayer(int id);	
+	RobotPlayer& operator=(const RobotPlayer&);
 	bool buyout(Square& square);
 		
 };

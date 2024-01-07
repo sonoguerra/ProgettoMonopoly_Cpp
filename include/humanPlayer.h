@@ -3,10 +3,10 @@
 #include "../include/player.h"
 #include "../include/square.h"
 
-class humanPlayer:public player{
+class HumanPlayer:public Player{
 public:
-	humanPlayer();	
-	humanPlayer& operator=(const humanPlayer&);
+	HumanPlayer();	
+	HumanPlayer& operator=(const HumanPlayer&);
 	bool buyout(Square& square);
 	
 };

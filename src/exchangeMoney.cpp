@@ -1,12 +1,12 @@
 #include "../include/exchangeMoney.h"
 
 
- void exchangeMoney::pay_someone(player& owner,player& borrower,const Square& square){
+ void exchangeMoney::pay_someone(Player& owner,Player& borrower,const Square& square){
 	owner.add_amount(5);
 	borrower.remove_amount(5);
 }
 	
- void exchangeMoney::passing_prize(player& p1){
+ void exchangeMoney::passing_prize(Player& p1){
   p1.add_amount(20);
 }	
 	

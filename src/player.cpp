@@ -1,20 +1,20 @@
 #include <time.h>
 #include "../include/player.h"
 
-int player::dice_throw(){
+int Player::dice_throw() const{
 	srand(time(NULL));
 	
 	return (rand()%6)+1;
 }
 
-int player::add_amount(int amount){
+int Player::add_amount(int amount){
 	if(amount<0){
 		//eccezione
 	}
 	return savings+=amount;
 	
 }
-int player::remove_amount(int amount){
+int Player::remove_amount(int amount){
 	if(amount<0){
 		//eccezione
 	}

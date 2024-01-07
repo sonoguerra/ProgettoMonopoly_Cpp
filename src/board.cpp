@@ -3,7 +3,7 @@
 #include <cstdlib>
 
 Board::Board() {
-    srand(time(NULL));                                          //se questa viene chiamata nel main prima di tutto il resto forse qui non serve
+    /*srand(time(NULL));                                          //se questa viene chiamata nel main prima di tutto il resto forse qui non serve
     positions = {0, 0, 0, 0};
     squares.push_back(Square("P"));
     squares.at(0).add_player(1);
@@ -52,7 +52,7 @@ Board::Board() {
             }
             } while (!valid);
         }
-    }
+    }*/
 }
 
 std::vector<Square> Board::get_board() const {

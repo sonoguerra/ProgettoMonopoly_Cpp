@@ -3,16 +3,16 @@
 #include <vector>
 #include "square.h"
 
-class player{
+class Player{
 protected:
  int savings;
  int id;
  std::vector<Square> properties;
 public:
- player(){};
- player(const player&) = delete;
- player& operator=(const player&) = delete;
- int dice_throw();
+ Player(){};
+ Player(const Player&) = delete;
+ Player& operator=(const Player&) = delete;
+ int dice_throw() const;
  int add_amount(int amount);
  int remove_amount(int amount);
  virtual bool buyout(Square& square)=0;
