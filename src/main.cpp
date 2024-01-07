@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstring>
 #include "../include/game.h"
+
 int main(int argc, char* argv[]) {
 	/*
 	 * Controlli argomento passato da riga di comando
