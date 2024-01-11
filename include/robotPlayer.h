@@ -3,12 +3,17 @@
 #include "../include/player.h"
 #include "../include/square.h"
 
-class robotPlayer:public player{
+class RobotPlayer:public Player{
 public:
-	robotPlayer(int id);	
-	robotPlayer& operator=(const robotPlayer&);
-	bool buyout(Square& square);
-		
+	RobotPlayer();
+	RobotPlayer(int id);	
+	RobotPlayer(const RobotPlayer& rb);	
+	RobotPlayer& operator=(const RobotPlayer& rb);		
+	bool buyout(Square& square);	
+	bool build_house(Square& square);
+	bool build_hotel(Square& square);
+	
+	
 };
 
 #endif 

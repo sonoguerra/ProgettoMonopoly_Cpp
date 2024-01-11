@@ -1,24 +1,37 @@
 #include <vector>
 #include "../src/humanPlayer.cpp"
+#include "../src/robotPlayer.cpp"
 #include <iostream>
 #include "../src/exchangeMoney.cpp"
 
 
 int main(){	
 	
-	humanPlayer paolo;
-	humanPlayer fazio;
+	HumanPlayer paolo(1);
+	HumanPlayer fazio(2);
 	
-	Square square("E");
-	paolo.buyout(square);
-	exchangeMoney::pay_someone(paolo,fazio,square);
+	Square sandalo("A4","E");
+	Square malo("B7","L");
+	Square sano("B7","S");
+	
+	std::cout<<exchangeMoney::buying_price(sano)<<std::endl;
+	sano.upgrade();
+	std::cout<<exchangeMoney::buying_price(malo)<<std::endl;
+	std::cout<<exchangeMoney::buying_price(sandalo)<<std::endl;
+	sano.upgrade();
+	
+	
+	
+	
+	
+	paolo.buyout(sandalo);
+	fazio.buyout(malo);
+	
 
+	paolo.build_house(sandalo);
 	
-	std::cout<<paolo.getSavings()<<std::endl;
-	std::cout<<fazio.getSavings()<<std::endl;
-	std::cout<<paolo.dice_throw()<<std::endl;
-	std::vector<Square> edifici=paolo.getBuildings();
-	std::cout<<edifici[0].get_content()<<std::endl;
+	paolo.build_hotel(malo);		
+
 	
 	return 0;
 

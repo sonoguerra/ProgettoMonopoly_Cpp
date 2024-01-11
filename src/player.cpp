@@ -1,20 +1,25 @@
 #include <time.h>
 #include "../include/player.h"
 
-int player::dice_throw(){
+Player::Player(){
 	srand(time(NULL));
-	
-	return (rand()%6)+1;
+	savings=100;
+	id=0;	
 }
 
-int player::add_amount(int amount){
+int Player::dice_throw(){	
+	int dice=(rand()%6)+1;
+	log<<"Giocatore "<<id<<" ha tirato i dadi ottenendo un valore di "<< dice<<std::endl;
+	return dice;
+}
+
+int Player::add_amount(int amount){
 	if(amount<0){
 		//eccezione
 	}
-	return savings+=amount;
-	
+	return savings+=amount;	
 }
-int player::remove_amount(int amount){
+int Player::remove_amount(int amount){
 	if(amount<0){
 		//eccezione
 	}
