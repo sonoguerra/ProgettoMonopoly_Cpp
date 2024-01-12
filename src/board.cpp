@@ -5,7 +5,7 @@
 
 Board::Board()
 {
-    srand(time(NULL)); // se questa viene chiamata nel main prima di tutto il resto forse qui non serve
+    srand(time(NULL));
     positions = {0, 0, 0, 0};
     squares.push_back(Square(convert_position(0), "P"));
     squares.at(0).add_player(1);
@@ -33,7 +33,7 @@ Board::Board()
                         squares.push_back(Square(convert_position(i), "E"));
                         count_economy++;
                         valid = true;
-                    } // migliorabile forse generando prima tutte le caselle e poi riordinandole in maniera casuale. Trovare un modo per non indentare così tanto.
+                    } 
                     break;
                 case 1:
                     if (count_standard < 10)
@@ -79,20 +79,21 @@ std::vector<int> Board::get_positions() const
     return positions;
 }
 
-Square Board::square_at(int i) const
+Square& Board::square_at(int i)
 {
     return squares.at(i%28);
 }
 
-int Board::move(int player, int dice)
+int Board::move(Player& player, int dice)
 {
-    int start = positions[player];
-    squares.at(start).remove_player(player);
+    int player_id = player.get_id();
+    int start = positions[player_id];
+    squares.at(start).remove_player(player_id);
     int end = (start + dice) % 28;
-    squares.at(end).add_player(player);
-    positions[player] = end;
-    // if (start > 15 && end >= 0) Player.give(20);
-    return end; // ritorna la posizione della casella dove finisce il giocatore, quindi dopo questa se si vuole vedere lo stato della casella bisogna chiamare square_at(end)
+    squares.at(end).add_player(player_id);
+    positions[player_id] = end;
+    if (start > 15 && end >= 0) exchangeMoney::passing_prize(player);
+    return end; // ritorna la posizione della casella dove finisce il giocatore.
 }
 
 void Board::buy_property(int i, int player)
@@ -166,9 +167,6 @@ std::string convert_position(int pos)
     return position;
 }
 
-
-
-// TODO: aggiungere controlli di validità
 int convert_position(std::string pos)
 {
     int position = 0;
@@ -176,6 +174,10 @@ int convert_position(std::string pos)
         throw std::invalid_argument("Invalid argument: position must be exactly 2 characters long.");
     char letter_part = pos.at(0);
     int numerical_part = std::stoi(pos.substr(1, 1));
+    if (letter_part < 'A' || letter_part > 'H')
+        throw std::invalid_argument("Invalid argument: position row must be between A and H (included).");
+    if (numerical_part < 1 || numerical_part > 8 || ((letter_part != 'A' || letter_part != 'H') && (numerical_part != 1 || numerical_part != 8)))
+        throw std::invalid_argument("Invalid argument: specified column is not a valid number.");
     if (letter_part == 'H')
     {
         position = 8 - numerical_part;
@@ -197,22 +199,22 @@ int convert_position(std::string pos)
 
 std::ostream& operator<<(std::ostream &o, const Board &b)
 {
+    std::vector<Square> board = b.get_board();
     std::string output = "";
     int i;
     for (i = 0; i < 8; i++)
     {
-        output = b.square_at(i).get_content() + "\t" + output;
+        output = board.at(i).get_content() + "\t" + output;
     }
-
     output = "\n" + output;
     for (i = 8; i < 14; i++)
     {
-        output = b.square_at(i).get_content() + "\t\t\t\t\t\t\t" + b.square_at(35 - i).get_content() + output;
+        output = board.at(i).get_content() + "\t\t\t\t\t\t\t" + board.at(35 - i).get_content() + output;
         output = "\n" + output;
     }
     for (i = 21; i > 13; i--)
     {
-        output = b.square_at(i).get_content() + "\t" + output;
+        output = board.at(i).get_content() + "\t" + output;
     }
     return o << output;
 }

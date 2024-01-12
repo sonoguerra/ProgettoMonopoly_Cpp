@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 #include "square.h"
+#include "player.h"
+#include "exchangeMoney.h"
 
 class Board
 {
@@ -14,10 +16,10 @@ public:
     Board(Board&& board);
     std::vector<Square> get_board() const;
     std::vector<int> get_positions() const;
-    Square square_at(int i) const;
-    int move(int player, int dice); // da sostituire int con Player
+    Square& square_at(int i);
+    int move(Player& player, int dice);
     void buy_property(int i, int player);
-    void upgrade_property(int i); // questo metodo e il seguente potrebbero non servire, ma in teoria così evitano il dover ritornare una reference a Square
+    void upgrade_property(int i);
     void delete_property(int i);
     void buy_property(std::string pos, int player);
     void upgrade_property(std::string pos);

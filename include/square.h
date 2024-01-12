@@ -9,8 +9,7 @@ class Square
 {
 public:
     Square();
-    Square(std::string position, std::string category); // da vedere se usare un enum di char, ma è una feature di C++11. Vedere se si può quantomeno convertire a char.
-    // aggiungere costruttore di copia e spostamento(?)
+    Square(std::string position, std::string category);
     std::string get_id() const;
     std::string get_content() const;
     bool is_unassigned() const;

@@ -8,9 +8,16 @@ Square::Square()
     owner = 0;
 }
 
-//Validità
 Square::Square(std::string position, std::string category)
 {
+    if (position.length() != 2)
+        throw std::invalid_argument("Invalid argument: position must be exactly 2 characters long.");
+    char letter_part = position.at(0);
+    int numerical_part = std::stoi(position.substr(1, 1));
+    if (letter_part < 'A' || letter_part > 'H')
+        throw std::invalid_argument("Invalid argument: position row must be between A and H (included).");
+    if (numerical_part < 1 || numerical_part > 8 || ((letter_part != 'A' || letter_part != 'H') && (numerical_part != 1 || numerical_part != 8)))
+        throw std::invalid_argument("Invalid argument: specified column is not a valid number.");
     if (category != " " && category != "E" && category != "S" && category != "L" && category != "P")
         throw std::invalid_argument("Invalid argument: only valid arguments are characters P, S, L, E and blank space.");
     content = "|" + category + "|";
@@ -35,6 +42,8 @@ bool Square::is_unassigned() const
     return false;
 }
 
+
+
 bool Square::is_house_built() const
 {
     return (content.at(2) == '*');
@@ -42,8 +51,6 @@ bool Square::is_house_built() const
 
 bool Square::is_hotel_built() const
 {
-
-    
     return (content.at(2) == '^');
 }
 
