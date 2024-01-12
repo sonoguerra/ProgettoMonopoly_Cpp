@@ -7,11 +7,10 @@ namespace Game{
 	void players_order (std::vector<Player*>& p){
 		std::vector<int> dice = {p.at(0)->dice_throw(), p.at(1)->dice_throw(), p.at(2)->dice_throw(), p.at(3)->dice_throw()};
 		
-		std::cout << "Start: ";
+		std::cout << "Tiro dadi iniziale: ";
 		for(auto i = dice.begin(); i<dice.end(); ++i) {
 			std::cout << *i << " ";
 		}
-		std::cout << std::endl;
 		std::cout << std::endl;
 		
 		int i = 0;
@@ -31,19 +30,6 @@ namespace Game{
 					}
 				}
 			}
-			
-			std::cout << "Player: ";
-			for(auto i = p.begin(); i<p.end(); ++i) {
-				const Player* pointer = *i;
-				std::cout << pointer->getId() << " ";
-			}
-			std::cout << std::endl;
-			std::cout << "Middle: ";
-			for(auto i = dice.begin(); i<dice.end(); ++i) {
-				std::cout << *i << " ";
-			}
-			std::cout << std::endl;
-			
 			//se due numeri consecutivi non sono uguali, allora non ci interessa piu' la porzione prima dell' i-esima posizione
 			while(i < (end-1) && dice.at(i) != dice.at(i+1)) {
 				i++;
@@ -68,8 +54,7 @@ namespace Game{
 			}
 		}
 		
-		std::cout << std::endl;
-		std::cout << "End: ";
+		std::cout << "Ordine dadi finale: ";
 		for(auto i = dice.begin(); i<dice.end(); ++i) {
 			std::cout << *i << " ";
 		}

@@ -27,26 +27,29 @@ int main(int argc, char* argv[]) {
 	 * Scelta su che tipo di Player istanziare in base al parametro passato
 	 */
 	std::vector<Player*> players;
+	
 	if(strcmp(argv[1], "computer")==0) {
 		players = {new RobotPlayer(1), new RobotPlayer(2), new RobotPlayer(3), new RobotPlayer(4)};
 	}else{
 		players = {new HumanPlayer(1), new RobotPlayer(2), new RobotPlayer(3), new RobotPlayer(4)};
 	}
 	
-	std::cout << "Player: ";
-	for(int i = 0; i < players.size(); i++) {
-		std::cout << players.at(i)->getId() << " ";
-	}
-	std::cout << std::endl;
-	
-	Game::players_order(players);
-	
-	std::cout << "Player: ";
+	std::cout << "Ordine players iniziale: ";
 	for(auto i = players.begin(); i<players.end(); ++i) {
 		const Player* pointer = *i;
 		std::cout << pointer->getId() << " ";
 	}
 	std::cout << std::endl;
+	
+	Game::players_order(players);
+	
+	std::cout << "Ordine players finale: ";
+	for(auto i = players.begin(); i<players.end(); ++i) {
+		const Player* pointer = *i;
+		std::cout << pointer->getId() << " ";
+	}
+	std::cout << std::endl;
+	
 	
 	return 0;
 }
