@@ -5,10 +5,14 @@
 
 class HumanPlayer:public Player{
 public:
-	HumanPlayer();	
-	HumanPlayer(int id);	
-	HumanPlayer& operator=(const HumanPlayer&);
+	HumanPlayer();
+	HumanPlayer(int id);
+	HumanPlayer(const HumanPlayer& hp);	
+	HumanPlayer& operator=(const HumanPlayer& hp);	
 	bool buyout(Square& square);
+	bool build_house(Square& square);
+	bool build_hotel(Square& square);
+	
 	
 };
 

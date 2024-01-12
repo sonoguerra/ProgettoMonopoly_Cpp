@@ -7,9 +7,13 @@ class RobotPlayer:public Player{
 public:
 	RobotPlayer();
 	RobotPlayer(int id);	
-	RobotPlayer(const RobotPlayer& r);
-	bool buyout(Square& square);
-		
+	RobotPlayer(const RobotPlayer& rb);	
+	RobotPlayer& operator=(const RobotPlayer& rb);		
+	bool buyout(Square& square);	
+	bool build_house(Square& square);
+	bool build_hotel(Square& square);
+	
+	
 };
 
 #endif 

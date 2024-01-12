@@ -2,17 +2,16 @@
 #define EXCHANGEMONEY_H
 #include "../include/player.h"
 #include "../include/square.h"
+#include <fstream>
 
-class exchangeMoney{
-public:
-	exchangeMoney();
-	static int square_value(const Square& square);
-	static int building_cost(const Square& square);	
-	static int square_price(const Square& square);	
-	static void pay_someone(Player& p1,Player& p2,const Square& square);
-	static void passing_prize(Player& p1);
+namespace exchangeMoney{
 	
-
+	int passing_cost(const Square& square);
+	int building_cost(const Square& square);	
+	int buying_price(const Square& square);	
+	bool pay_someone(Player& p1,Player& p2,const Square& square);
+	void passing_prize(Player& p1);
+	std::ofstream scrittura;
 
 	
 };
