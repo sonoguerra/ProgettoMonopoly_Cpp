@@ -1,0 +1,141 @@
+
+		p.at(0)->dice_throw(), p.at(1)->dice_throw(), p.at(2)->dice_throw(), p.at(3)->dice_throw()
+		
+		
+		
+		
+		std::vector<int> dice = {1,1,4,1};
+		
+		std::cout << "Start: ";
+		for(auto i = dice.begin(); i<dice.end(); ++i) {
+			std::cout << *i << " ";
+		}
+		std::cout << std::endl;
+		
+		for(int i = 0; i < dice.size()-1; i++) {
+			for(int j = i+1; j < dice.size(); j++) {
+				if(dice.at(i) < dice.at(j)) {
+					int d_temp = dice.at(i);
+					dice.at(i) = dice.at(j);
+					dice.at(j) = d_temp;
+					
+					Player* p_temp = p.at(i);
+					p.at(i) = p.at(j);
+					p.at(j) = p_temp; //MEMORY LEAK?
+				}
+			}
+		}
+		
+		std::cout << "Player: ";
+		for(auto i = p.begin(); i<p.end(); ++i) {
+			const Player* pointer = *i;
+			std::cout << pointer->getId() << " ";
+		}
+		std::cout << std::endl;
+		std::cout << "Middle: ";
+		for(auto i = dice.begin(); i<dice.end(); ++i) {
+			std::cout << *i << " ";
+		}
+		std::cout << std::endl;
+		
+		int i = 0;
+		while(i < dice.size()) {
+			int j = i+1;
+			int count = 0;
+			
+			while(j < dice.size() && dice.at(i) == dice.at(j)) {
+				std::cout << "Player " << p.at(j)->getId() << " ritira dado: ";
+				dice.at(j) = p.at(j)->dice_throw();
+				std::cout << dice.at(j) << std::endl;
+				count++;
+				j++;
+			}
+			
+			if(count > 0) {
+				std::cout << "Player " << p.at(i)->getId() << " ritira dado: ";
+				dice.at(i) = p.at(i)->dice_throw();
+				std::cout << dice.at(i) << std::endl;
+			}
+			
+			while(count > 0) {
+				if(dice.at(i) < dice.at(i+1)) {
+					int d_temp = dice.at(i);
+					dice.at(i) = dice.at(i+1);
+					dice.at(i+1) = d_temp;
+					
+					Player* p_temp = p.at(i);
+					p.at(i) = p.at(i+1);
+					p.at(i+1) = p_temp; //MEMORY LEAK?
+				}
+				i++;
+				count--;
+			}
+			i++;
+		}
+		
+		std::cout << "End: ";
+		for(auto i = dice.begin(); i<dice.end(); ++i) {
+			std::cout << *i << " ";
+		}
+		std::cout << std::endl;
+	}
+
+---------------------------------------------------------------
+
+	for(int i = 0; i < dice.size()-1; i++) {
+			for(int j = i+1; j < dice.size(); j++) {
+				if(dice.at(i) < dice.at(j)) {
+					int d_temp = dice.at(i);
+					dice.at(i) = dice.at(j);
+					dice.at(j) = d_temp;
+					
+					Player* p_temp = p.at(i);
+					p.at(i) = p.at(j);
+					p.at(j) = p_temp; //MEMORY LEAK?
+				}
+			}
+			
+			int count = 0;
+			int k = i+1;
+			while(k < dice.size() && dice.at(i) == dice.at(k)) {
+				std::cout << "Player " << p.at(k)->getId() << " ritira dado: ";
+				dice.at(k) = p.at(k)->dice_throw();
+				std::cout << dice.at(k) << std::endl;
+				count++;
+				k++;
+			}
+			
+			if(count > 0) {
+				std::cout << "Player " << p.at(i)->getId() << " ritira dado: ";
+				dice.at(i) = p.at(i)->dice_throw();
+				std::cout << dice.at(i) << std::endl;
+				i--;
+			}
+			
+			std::cout << "Player: ";
+			for(auto i = p.begin(); i<p.end(); ++i) {
+				const Player* pointer = *i;
+				std::cout << pointer->getId() << " ";
+			}
+			std::cout << std::endl;
+			std::cout << "Middle: ";
+			for(auto i = dice.begin(); i<dice.end(); ++i) {
+				std::cout << *i << " ";
+			}
+			std::cout << std::endl;
+		
+			k=i;
+			while(count > 0) {
+				if(dice.at(k) < dice.at(k+1)) {
+					int d_temp = dice.at(k);
+					dice.at(k) = dice.at(k+1);
+					dice.at(k+1) = d_temp;
+					
+					Player* p_temp = p.at(k);
+					p.at(k) = p.at(k+1);
+					p.at(k+1) = p_temp; //MEMORY LEAK?
+				}
+				k++;
+				count--;
+			}
+		}

@@ -6,6 +6,7 @@
 class HumanPlayer:public Player{
 public:
 	HumanPlayer();	
+	HumanPlayer(int id);	
 	HumanPlayer& operator=(const HumanPlayer&);
 	bool buyout(Square& square);
 	

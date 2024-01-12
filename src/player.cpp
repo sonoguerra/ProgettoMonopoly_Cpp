@@ -1,8 +1,13 @@
 #include <time.h>
 #include "../include/player.h"
 
-int Player::dice_throw() const{
+Player::Player() {
+	savings=100;
 	srand(time(NULL));
+}
+
+int Player::dice_throw() const{
+	
 	
 	return (rand()%6)+1;
 }

@@ -11,12 +11,14 @@ add_library(monopoly
 	include/player.h
 	include/robotPlayer.h
 	include/square.h
+	include/game.h
 	src/board.cpp
 	src/exchangeMoney.cpp
 	src/humanPlayer.cpp
 	src/player.cpp
 	src/robotPlayer.cpp
 	src/square.cpp
+	src/game.cpp
 )
 
 add_executable(main

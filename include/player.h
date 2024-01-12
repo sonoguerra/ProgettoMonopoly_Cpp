@@ -9,7 +9,7 @@ protected:
  int id;
  std::vector<Square> properties;
 public:
- Player(){};
+ Player();
  Player(const Player&) = delete;
  Player& operator=(const Player&) = delete;
  int dice_throw() const;
@@ -17,7 +17,7 @@ public:
  int remove_amount(int amount);
  virtual bool buyout(Square& square)=0;
  int getSavings(){return savings;};
- int getId(){return id;};
+ int getId() const {return id;};
  void setSavings(int new_amount){savings=new_amount;};
  std::vector<Square>& getBuildings(){return properties;};
  

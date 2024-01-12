@@ -1,9 +1,16 @@
 #include "../include/robotPlayer.h"
 
+RobotPlayer::RobotPlayer() {}
+
 RobotPlayer::RobotPlayer(int id){
 	savings=100;
 	//if(id>4 Or id<1){eccezione}
 	this->id=id;
+}
+
+RobotPlayer::RobotPlayer(const RobotPlayer& r) {
+	id = r.id;
+	savings = r.savings;
 }
 
 bool RobotPlayer::buyout(Square& square){
@@ -16,5 +23,4 @@ bool RobotPlayer::buyout(Square& square){
 	}
 	return false;
 }
-
 

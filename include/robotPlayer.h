@@ -5,8 +5,9 @@
 
 class RobotPlayer:public Player{
 public:
+	RobotPlayer();
 	RobotPlayer(int id);	
-	RobotPlayer& operator=(const RobotPlayer&);
+	RobotPlayer(const RobotPlayer& r);
 	bool buyout(Square& square);
 		
 };
