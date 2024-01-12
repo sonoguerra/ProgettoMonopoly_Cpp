@@ -5,7 +5,7 @@
 
 namespace Game{
 	void players_order (std::vector<Player*>& p){
-		std::vector<int> dice = {1,1,4,1};
+		std::vector<int> dice = {p.at(0)->dice_throw(), p.at(1)->dice_throw(), p.at(2)->dice_throw(), p.at(3)->dice_throw()};
 		
 		std::cout << "Start: ";
 		for(auto i = dice.begin(); i<dice.end(); ++i) {
@@ -58,7 +58,6 @@ namespace Game{
 				std::cout << dice.at(comp) << std::endl;
 				comp++;
 			}
-			std::cout << "comp: " << comp << std::endl;
 			end = comp; //in caso ci siano degli elementi uguali, sposto end a +1 dall'ultimo elemento uguale all'i-esimo
 			
 			//se ci sono degli elementi uguali all'i-esimo allora ritira il dado anche i-esimo
@@ -67,7 +66,6 @@ namespace Game{
 				dice.at(i) = p.at(i)->dice_throw();
 				std::cout << dice.at(i) << std::endl;
 			}
-			std::cout << i << std::endl;
 		}
 		
 		std::cout << std::endl;
