@@ -1,8 +1,8 @@
 // Author: Davide Pinzan
 #ifndef SQUARE_H
 #define SQUARE_H
-
 #include <string>
+
 #include <iostream>
 
 class Square

@@ -1,0 +1,42 @@
+[
+{
+  "directory": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build",
+  "command": "C:\\PROGRA~2\\MICROS~4\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1429~1.301\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -I..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /FoCMakeFiles\\monopoly.dir\\src\\board.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\Davide\\Desktop\\Progetti\\C++\\ProgettoFinale\\src\\board.cpp",
+  "file": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/src/board.cpp"
+},
+{
+  "directory": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build",
+  "command": "C:\\PROGRA~2\\MICROS~4\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1429~1.301\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -I..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /FoCMakeFiles\\monopoly.dir\\src\\exchangeMoney.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\Davide\\Desktop\\Progetti\\C++\\ProgettoFinale\\src\\exchangeMoney.cpp",
+  "file": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/src/exchangeMoney.cpp"
+},
+{
+  "directory": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build",
+  "command": "C:\\PROGRA~2\\MICROS~4\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1429~1.301\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -I..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /FoCMakeFiles\\monopoly.dir\\src\\humanPlayer.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\Davide\\Desktop\\Progetti\\C++\\ProgettoFinale\\src\\humanPlayer.cpp",
+  "file": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/src/humanPlayer.cpp"
+},
+{
+  "directory": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build",
+  "command": "C:\\PROGRA~2\\MICROS~4\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1429~1.301\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -I..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /FoCMakeFiles\\monopoly.dir\\src\\player.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\Davide\\Desktop\\Progetti\\C++\\ProgettoFinale\\src\\player.cpp",
+  "file": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/src/player.cpp"
+},
+{
+  "directory": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build",
+  "command": "C:\\PROGRA~2\\MICROS~4\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1429~1.301\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -I..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /FoCMakeFiles\\monopoly.dir\\src\\robotPlayer.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\Davide\\Desktop\\Progetti\\C++\\ProgettoFinale\\src\\robotPlayer.cpp",
+  "file": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/src/robotPlayer.cpp"
+},
+{
+  "directory": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build",
+  "command": "C:\\PROGRA~2\\MICROS~4\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1429~1.301\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -I..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /FoCMakeFiles\\monopoly.dir\\src\\square.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\Davide\\Desktop\\Progetti\\C++\\ProgettoFinale\\src\\square.cpp",
+  "file": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/src/square.cpp"
+},
+{
+  "directory": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build",
+  "command": "C:\\PROGRA~2\\MICROS~4\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1429~1.301\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -I..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /FoCMakeFiles\\monopoly.dir\\src\\game.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\Davide\\Desktop\\Progetti\\C++\\ProgettoFinale\\src\\game.cpp",
+  "file": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/src/game.cpp"
+},
+{
+  "directory": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build",
+  "command": "C:\\PROGRA~2\\MICROS~4\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1429~1.301\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -I..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /FoCMakeFiles\\main.dir\\src\\main.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\Davide\\Desktop\\Progetti\\C++\\ProgettoFinale\\src\\main.cpp",
+  "file": "C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/src/main.cpp"
+}
+]

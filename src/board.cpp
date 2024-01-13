@@ -111,6 +111,19 @@ void Board::delete_property(int i)
     squares.at(i).delete_property();
 }
 
+void Board::buy_property(std::string pos, int player) {
+    buy_property(convert_position(pos), player);
+}
+
+void Board::upgrade_property(std::string pos) {
+    upgrade_property(convert_position(pos));
+}
+
+void Board::delete_property(std::string pos) {
+    delete_property(convert_position(pos));
+}
+
+
 void Board::buy_property(std::string pos, int player)
 {
     buy_property(convert_position(pos), player);

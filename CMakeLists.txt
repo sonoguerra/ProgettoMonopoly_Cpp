@@ -1,49 +1,30 @@
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
-project(progettoFinale)
+project(ProgettoFinale)
 
 include_directories(include)
+
+add_library(monopoly
+	include/board.h
+	include/exchangeMoney.h
+	include/humanPlayer.h
+	include/player.h
+	include/robotPlayer.h
+	include/square.h
+	include/game.h
+	src/board.cpp
+	src/exchangeMoney.cpp
+	src/humanPlayer.cpp
+	src/player.cpp
+	src/robotPlayer.cpp
+	src/square.cpp
+	src/game.cpp
+)
 
 add_executable(main
 	src/main.cpp
 )
-add_library(Square
-	include/square.h
-	src/square.cpp
-)
-add_library(Player
-	include/player.h
-	src/player.cpp
-)
-
-add_library(HumanPlayer
-	include/humanPlayer.h
-	src/humanPlayer.cpp
-)
-
-add_library(RobotPlayer
-	include/robotPlayer.h
-	src/robotPlayer.cpp
-)
-
-add_library(ExchangeMoney
-	include/exchangeMoney.h
-	src/exchangeMoney.cpp
-)
-
 
 target_link_libraries(main
-	ExchangeMoney
-	Square
-	Player
-	HumanPlayer
-	RobotPlayer
-)
-
-target_link_libraries(HumanPlayer
-	Player
-)
-
-target_link_libraries(RobotPlayer
-	Player
+	monopoly
 )

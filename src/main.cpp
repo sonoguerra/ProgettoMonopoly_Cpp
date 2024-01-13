@@ -1,35 +1,55 @@
-#include <vector>
-#include "../src/humanPlayer.cpp"
+//Guerra Thomas
 
-
-#include "../src/robotPlayer.cpp"
 #include <iostream>
-#include "../src/exchangeMoney.cpp"
+#include <vector>
+#include <cstring>
+#include <algorithm>
+#include "../include/player.h"
+#include "../include/robotPlayer.h"
+#include "../include/humanPlayer.h"
+#include "../include/game.h"
 
-
-int main(){	
+int main(int argc, char* argv[]) {
+	/*
+	 * Controlli argomento passato da riga di comando
+	 */
+	if(argc<2) {
+		std::cout << "Non hai fornito il parametro da riga di comando" << std::endl;
+		return -1;
+	}
 	
-	HumanPlayer paolo(1);
-	HumanPlayer fazio(2);
+	if(strcmp(argv[1], "computer")!=0 && strcmp(argv[1], "human")!=0) {
+		std::cout << "Parametro non valido, inserire: \"computer\" o \"human\"" << std::endl;
+		return -1;
+	}
 	
-	Square sandalo("A6","E");
-	Square malo("B7","L");
-	Square sano("B7","S");
+	/*
+	 * Scelta su che tipo di Player istanziare in base al parametro passato
+	 */
+	std::vector<Player*> players;
 	
-	std::cout<<exchangeMoney::buying_price(sano)<<std::endl;
-	sano.upgrade();
-	std::cout<<exchangeMoney::buying_price(malo)<<std::endl;
-	std::cout<<exchangeMoney::buying_price(sandalo)<<std::endl;
-	sano.upgrade();
-	paolo.buyout(sandalo);
-	fazio.buyout(malo);
+	if(strcmp(argv[1], "computer")==0) {
+		players = {new RobotPlayer(1), new RobotPlayer(2), new RobotPlayer(3), new RobotPlayer(4)};
+	}else{
+		players = {new HumanPlayer(1), new RobotPlayer(2), new RobotPlayer(3), new RobotPlayer(4)};
+	}
 	
-
-	paolo.build_house(sandalo);
+	std::cout << "Ordine players iniziale: ";
+	for(auto i = players.begin(); i<players.end(); ++i) {
+		const Player* pointer = *i;
+		std::cout << pointer->getId() << " ";
+	}
+	std::cout << std::endl;
 	
-	paolo.build_hotel(malo);		
-
+	Game::players_order(players);
+	
+	std::cout << "Ordine players finale: ";
+	for(auto i = players.begin(); i<players.end(); ++i) {
+		const Player* pointer = *i;
+		std::cout << pointer->getId() << " ";
+	}
+	std::cout << std::endl;
+	
 	
 	return 0;
-
 }
