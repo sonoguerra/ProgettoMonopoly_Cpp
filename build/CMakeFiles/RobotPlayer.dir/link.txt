@@ -1,2 +1,0 @@
-/usr/bin/ar qc libRobotPlayer.a CMakeFiles/RobotPlayer.dir/src/robotPlayer.cpp.o
-/usr/bin/ranlib libRobotPlayer.a

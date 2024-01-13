@@ -1,8 +1,0 @@
-/home/damiano/ProgettoFinale/ProgettoFinale/build/CMakeFiles/main.dir
-/home/damiano/ProgettoFinale/ProgettoFinale/build/CMakeFiles/Square.dir
-/home/damiano/ProgettoFinale/ProgettoFinale/build/CMakeFiles/Player.dir
-/home/damiano/ProgettoFinale/ProgettoFinale/build/CMakeFiles/HumanPlayer.dir
-/home/damiano/ProgettoFinale/ProgettoFinale/build/CMakeFiles/RobotPlayer.dir
-/home/damiano/ProgettoFinale/ProgettoFinale/build/CMakeFiles/ExchangeMoney.dir
-/home/damiano/ProgettoFinale/ProgettoFinale/build/CMakeFiles/edit_cache.dir
-/home/damiano/ProgettoFinale/ProgettoFinale/build/CMakeFiles/rebuild_cache.dir

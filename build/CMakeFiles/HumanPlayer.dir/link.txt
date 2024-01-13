@@ -1,2 +1,0 @@
-/usr/bin/ar qc libHumanPlayer.a CMakeFiles/HumanPlayer.dir/src/humanPlayer.cpp.o
-/usr/bin/ranlib libHumanPlayer.a

@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/main.dir/src/main.cpp.o -o main  libExchangeMoney.a libSquare.a libPlayer.a libHumanPlayer.a libRobotPlayer.a libPlayer.a 
