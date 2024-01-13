@@ -1,8 +1,8 @@
 // Author: Davide Pinzan
 #ifndef SQUARE_H
 #define SQUARE_H
-#include <string>
 
+#include <string>
 #include <iostream>
 
 class Square
@@ -24,9 +24,9 @@ public:
     void delete_property();
 
 private:
-    std::string id;
-    std::string content;
-    int owner;
+    std::string id; //id è la posizione in coordinate lettera|numero della casella, utilizzato come identificatore univoco della stessa.
+    std::string content;    //il contenuto della casella sono tutte le informazioni utili ad essere visualizzate (presenza di giocatori, edifici, tipo...).
+    int owner;  //owner rappresenta il giocatore proprietario della casella.
 };
 
 std::ostream& operator<<(std::ostream& o, const Square& s);

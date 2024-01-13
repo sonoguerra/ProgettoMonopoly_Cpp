@@ -4,8 +4,8 @@
 
 Square::Square()
 {
-    content = "| |";
-    owner = 0;
+    content = "| |";    //Il costruttore di default inizializza la casella a una casella angolare.
+    owner = 0;  //Assegnare 0 a "owner" significa che la casella non ha ancora un proprietario.
 }
 
 Square::Square(std::string position, std::string category)
@@ -19,7 +19,7 @@ Square::Square(std::string position, std::string category)
     if (numerical_part < 1 || numerical_part > 8 || ((letter_part != 'A' && letter_part != 'H') && (numerical_part != 1 && numerical_part != 8)))
         throw std::invalid_argument("Invalid argument: specified column is not a valid number.");
     if (category != " " && category != "E" && category != "S" && category != "L" && category != "P")
-        throw std::invalid_argument("Invalid argument: only valid arguments are characters P, S, L, E and blank space.");
+        throw std::invalid_argument("Invalid argument: only valid arguments are characters P, S, L, E and blank space.");   //controllo di validità per capire se la posizione inserita sia valida o meno.
     content = "|" + category + "|";
     id = position;
     owner = 0;

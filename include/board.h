@@ -27,8 +27,8 @@ public:
     Board& operator=(Board&& board);
 
 private:
-    std::vector<Square> squares;
-    std::vector<int> positions;
+    std::vector<Square> squares;    //le caselle sono memorizzate come vector di Square. Nonostante le caselle siano individuate da una coppia di coordinate, di fatto il tabellone è costituito solo dal "bordo" della matrice 8x8, quindi utilizzare una matrice costringerebbe ad avere molte celle non utilizzate.
+    std::vector<int> positions; //le posizioni dei giocatori all'interno del tabellone sono memorizzate in questo vector.
 };
 
 std::string convert_position(int i);
