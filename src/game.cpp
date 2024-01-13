@@ -39,7 +39,7 @@ namespace Game{
 			//se ci dice.at(comp) e' uguale all'i-esimo, allora ritira il dado
 			int comp = i+1; 
 			while(comp < end && dice.at(i) == dice.at(comp)) {
-				std::cout << "Player " << p.at(comp)->getId() << " ritira dado: ";
+				std::cout << "Player " << p.at(comp)->get_id() << " ritira dado: ";
 				dice.at(comp) = p.at(comp)->dice_throw();
 				std::cout << dice.at(comp) << std::endl;
 				comp++;
@@ -48,7 +48,7 @@ namespace Game{
 			
 			//se ci sono degli elementi uguali all'i-esimo allora ritira il dado anche i-esimo
 			if(comp > (i+1)) {
-				std::cout << "Player " << p.at(i)->getId() << " ritira dado: ";
+				std::cout << "Player " << p.at(i)->get_id() << " ritira dado: ";
 				dice.at(i) = p.at(i)->dice_throw();
 				std::cout << dice.at(i) << std::endl;
 			}

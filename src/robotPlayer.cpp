@@ -1,5 +1,4 @@
 #include "../include/robotPlayer.h"
-#include "../include/exchangeMoney.h"
 
 
 
@@ -38,7 +37,7 @@ bool RobotPlayer::buyout(Square& square){
 	if(rand()%4==0){
 		
 		log.open("prova.txt", std::ios::app);
-		remove_amount(exchangeMoney::buying_price(square));
+		remove_amount(buying_price(square));
 		properties.push_back(square);
 		std::string printLog="Giocatore "+std::to_string(id)+" ha acquistato il terreno "+"\n";	
 		log<<printLog;	
@@ -52,7 +51,7 @@ bool RobotPlayer::build_house(Square& square){
 	
 	if(rand()%4==0){
 	log.open("prova.txt", std::ios::app);	
-	remove_amount(exchangeMoney::building_cost(square));
+	remove_amount(building_cost(square));
 	square.upgrade();
 	std::string printLog="Giocatore "+std::to_string(id)+" ha costruito una casa sul terreno "+"\n";
 	log<<printLog;
@@ -67,7 +66,7 @@ bool RobotPlayer::build_hotel(Square& square){
 		
 	if(rand()%4==0){
 	log.open("prova.txt", std::ios::app);	
-	remove_amount(exchangeMoney::building_cost(square));
+	remove_amount(building_cost(square));
 	square.upgrade();
 	std::string printLog="Giocatore "+std::to_string(id)+" ha migliorato una casa in albergo sul terreno "+"\n";
 	log<<printLog;

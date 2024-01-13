@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/monopoly.dir/src/board.cpp.o"
   "CMakeFiles/monopoly.dir/src/board.cpp.o.d"
-  "CMakeFiles/monopoly.dir/src/exchangeMoney.cpp.o"
-  "CMakeFiles/monopoly.dir/src/exchangeMoney.cpp.o.d"
   "CMakeFiles/monopoly.dir/src/game.cpp.o"
   "CMakeFiles/monopoly.dir/src/game.cpp.o.d"
   "CMakeFiles/monopoly.dir/src/humanPlayer.cpp.o"

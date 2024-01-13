@@ -141,6 +141,10 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/src/../include/player.h \
+ /usr/include/c++/13/fstream /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/c++/13/x86_64-redhat-linux/bits/basic_file.h \
+ /usr/include/c++/13/x86_64-redhat-linux/bits/c++io.h \
+ /usr/include/c++/13/bits/fstream.tcc \
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/src/../include/square.h \
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/src/../include/robotPlayer.h \
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/src/../include/../include/player.h \

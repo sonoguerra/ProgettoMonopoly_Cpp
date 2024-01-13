@@ -166,30 +166,6 @@ src/board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/monopoly.dir/build.make CMakeFiles/monopoly.dir/src/board.cpp.s
 .PHONY : src/board.cpp.s
 
-src/exchangeMoney.o: src/exchangeMoney.cpp.o
-.PHONY : src/exchangeMoney.o
-
-# target to build an object file
-src/exchangeMoney.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/monopoly.dir/build.make CMakeFiles/monopoly.dir/src/exchangeMoney.cpp.o
-.PHONY : src/exchangeMoney.cpp.o
-
-src/exchangeMoney.i: src/exchangeMoney.cpp.i
-.PHONY : src/exchangeMoney.i
-
-# target to preprocess a source file
-src/exchangeMoney.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/monopoly.dir/build.make CMakeFiles/monopoly.dir/src/exchangeMoney.cpp.i
-.PHONY : src/exchangeMoney.cpp.i
-
-src/exchangeMoney.s: src/exchangeMoney.cpp.s
-.PHONY : src/exchangeMoney.s
-
-# target to generate assembly for a file
-src/exchangeMoney.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/monopoly.dir/build.make CMakeFiles/monopoly.dir/src/exchangeMoney.cpp.s
-.PHONY : src/exchangeMoney.cpp.s
-
 src/game.o: src/game.cpp.o
 .PHONY : src/game.o
 
@@ -347,9 +323,6 @@ help:
 	@echo "... src/board.o"
 	@echo "... src/board.i"
 	@echo "... src/board.s"
-	@echo "... src/exchangeMoney.o"
-	@echo "... src/exchangeMoney.i"
-	@echo "... src/exchangeMoney.s"
 	@echo "... src/game.o"
 	@echo "... src/game.i"
 	@echo "... src/game.s"

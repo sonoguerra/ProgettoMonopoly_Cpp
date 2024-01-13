@@ -92,7 +92,7 @@ int Board::move(Player& player, int dice)
     int end = (start + dice) % 28;
     squares.at(end).add_player(player_id);
     positions[player_id] = end;
-    if (start > 15 && end >= 0) exchangeMoney::passing_prize(player);
+    if (start > 15 && end >= 0) passing_prize(player);
     return end; // ritorna la posizione della casella dove finisce il giocatore.
 }
 

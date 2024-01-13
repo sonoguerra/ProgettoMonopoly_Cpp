@@ -1,4 +1,4 @@
-C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build/CMakeFiles/monopoly.dir
-C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build/CMakeFiles/edit_cache.dir
-C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build/CMakeFiles/main.dir
-C:/Users/Davide/Desktop/Progetti/C++/ProgettoFinale/build/CMakeFiles/rebuild_cache.dir
+/media/sf_vm/C++/ProgettoFinale/ProgettoFinale/build/CMakeFiles/monopoly.dir
+/media/sf_vm/C++/ProgettoFinale/ProgettoFinale/build/CMakeFiles/main.dir
+/media/sf_vm/C++/ProgettoFinale/ProgettoFinale/build/CMakeFiles/edit_cache.dir
+/media/sf_vm/C++/ProgettoFinale/ProgettoFinale/build/CMakeFiles/rebuild_cache.dir

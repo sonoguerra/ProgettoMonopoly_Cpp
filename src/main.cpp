@@ -35,18 +35,16 @@ int main(int argc, char* argv[]) {
 	}
 	
 	std::cout << "Ordine players iniziale: ";
-	for(auto i = players.begin(); i<players.end(); ++i) {
-		const Player* pointer = *i;
-		std::cout << pointer->getId() << " ";
+	for(int i = 0; i < players.size(); i++) {
+		std::cout << players.at(i)->get_id() << " ";
 	}
 	std::cout << std::endl;
 	
 	Game::players_order(players);
 	
 	std::cout << "Ordine players finale: ";
-	for(auto i = players.begin(); i<players.end(); ++i) {
-		const Player* pointer = *i;
-		std::cout << pointer->getId() << " ";
+	for(int i = 0; i < players.size(); i++) {
+		std::cout << players.at(i)->get_id() << " ";
 	}
 	std::cout << std::endl;
 	

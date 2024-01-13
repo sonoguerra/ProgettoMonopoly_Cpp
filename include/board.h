@@ -6,7 +6,6 @@
 #include <string>
 #include "square.h"
 #include "player.h"
-#include "exchangeMoney.h"
 
 class Board
 {
