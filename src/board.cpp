@@ -176,7 +176,7 @@ int convert_position(std::string pos)
     int numerical_part = std::stoi(pos.substr(1, 1));
     if (letter_part < 'A' || letter_part > 'H')
         throw std::invalid_argument("Invalid argument: position row must be between A and H (included).");
-    if (numerical_part < 1 || numerical_part > 8 || ((letter_part != 'A' || letter_part != 'H') && (numerical_part != 1 || numerical_part != 8)))
+    if (numerical_part < 1 || numerical_part > 8 || ((letter_part != 'A' && letter_part != 'H') && (numerical_part != 1 && numerical_part != 8)))
         throw std::invalid_argument("Invalid argument: specified column is not a valid number.");
     if (letter_part == 'H')
     {
