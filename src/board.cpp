@@ -6,7 +6,7 @@
 Board::Board()
 {
     srand(time(NULL));
-    positions = {0, 0, 0, 0};
+    positions = {0, 0, 0, 0};   //vengono aggiunti tutti i giocatori nella casella di partenza in posizione 0
     squares.push_back(Square(convert_position(0), "P"));
     squares.at(0).add_player(1);
     squares.at(0).add_player(2);
@@ -17,14 +17,14 @@ Board::Board()
     {
         if ((i % 7) == 0)
         {
-            squares.push_back(Square(convert_position(i), " "));
+            squares.push_back(Square(convert_position(i), " "));    //genera le caselle angolari nelle posizioni multiple di 7
         }
         else
         {
             bool valid = false;
             do
             {
-                int select = rand() % 3;
+                int select = rand() % 3;    //le altre caselle vengono generate 
                 switch (select)
                 {
                 case 0:
@@ -92,7 +92,7 @@ int Board::move(Player& player, int dice)
     int end = (start + dice) % 28;
     squares.at(end).add_player(player_id);
     positions[player_id] = end;
-    if (start > 15 && end >= 0) passing_prize(player);
+    if (start > 15 && end < 12) passing_prize(player);
     return end; // ritorna la posizione della casella dove finisce il giocatore.
 }
 
