@@ -17,9 +17,9 @@ Square::Square(std::string position, std::string category)
     if (letter_part < 'A' || letter_part > 'H')
         throw std::invalid_argument("Invalid argument: position row must be between A and H (included).");
     if (numerical_part < 1 || numerical_part > 8 || ((letter_part != 'A' && letter_part != 'H') && (numerical_part != 1 && numerical_part != 8)))
-        throw std::invalid_argument("Invalid argument: specified column is not a valid number.");
+        throw std::invalid_argument("Invalid argument: specified column is not a valid number.");   //controllo di validità per capire se la posizione inserita sia valida o meno.
     if (category != " " && category != "E" && category != "S" && category != "L" && category != "P")
-        throw std::invalid_argument("Invalid argument: only valid arguments are characters P, S, L, E and blank space.");   //controllo di validità per capire se la posizione inserita sia valida o meno.
+        throw std::invalid_argument("Invalid argument: only valid arguments are characters P, S, L, E and blank space.");   //controllo di validità per capire se la tipologia della casella sia valida.
     content = "|" + category + "|";
     id = position;
     owner = 0;
@@ -46,7 +46,7 @@ bool Square::is_unassigned() const
 
 bool Square::is_house_built() const
 {
-    return (content.at(2) == '*');
+    return (content.at(2) == '*');  //il carattere in posizione 2 è l'identificativo dell'edificio costruito sulla casella
 }
 
 bool Square::is_hotel_built() const
@@ -56,7 +56,7 @@ bool Square::is_hotel_built() const
 
 char Square::get_type() const
 {
-    return content.at(1);
+    return content.at(1);   //il carattere in posizione 1 è la tipologia di terreno (economica, lusso, standard, partenza o angolare)
 }
 
 int Square::get_owner() const
@@ -66,7 +66,7 @@ int Square::get_owner() const
 
 void Square::add_player(int player)
 {
-    content.insert(content.length() - 1, std::to_string(player));
+    content.insert(content.length() - 1, std::to_string(player));   //aggiunge il giocatore alla casella nella posizione prima del carattere finale |
 }
 
 void Square::remove_player(int player)
@@ -77,10 +77,10 @@ void Square::remove_player(int player)
 
 void Square::upgrade()
 {
-    if (is_house_built())
+    if (is_house_built())   //sostituisce il carattere che rappresenta la casa con quello per l'albergo se l'upgrade viene richiesto su una casella con casa
         content.at(2) = '^';
-    else if (!is_hotel_built())
-        content.insert(2, "*");
+    else if (!is_hotel_built()) //controlla che non ci sia costruito un hotel, nel qual caso l'upgrade non sortisce alcun effetto
+        content.insert(2, "*"); //aggiunge nella seconda posizione il carattere rappresentativo della casa
 }
 
 void Square::buy_property(int player)
@@ -91,7 +91,7 @@ void Square::buy_property(int player)
 void Square::delete_property()
 {
     if (is_hotel_built() || is_house_built())
-        content.erase(2, 1);
+        content.erase(2, 1);    //cancella le proprietà costruite e resetta il proprietario
     owner = 0;
 }
 
