@@ -2,6 +2,12 @@ cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
 project(ProgettoFinale)
 
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
+
 include_directories(include)
 
 add_library(monopoly

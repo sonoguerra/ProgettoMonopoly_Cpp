@@ -7,9 +7,11 @@ Player::Player(){
 	id=0;	
 }
 
-int Player::dice_throw(){	
-	int dice=(rand()%6)+1;
+int Player::dice_throw(){
+    log.open("prova.txt", std::ios::app);
+	int dice=(rand()%11) + 2;
 	log<<"Giocatore "<<id<<" ha tirato i dadi ottenendo un valore di "<< dice<<std::endl;
+    log.close();
 	return dice;
 }
 
@@ -23,7 +25,7 @@ int Player::remove_amount(int amount){
 	if(amount<0){
 		//eccezione
 	}
-	return savings-=amount;
+	return savings-=amount; 
 }
 
 bool pay_someone(Player& owner,Player& borrower,const Square& square){
