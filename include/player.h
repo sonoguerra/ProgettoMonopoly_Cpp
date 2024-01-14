@@ -8,7 +8,7 @@ class Player{
 protected:
  int savings; 
  int id;
- std::vector<Square> properties;
+ std::vector<Square*> properties;
  std::ofstream log;
  
 public:
@@ -24,7 +24,7 @@ public:
  int get_savings() const{return savings;};
  int get_id() const{return id;};
  void set_savings(int new_amount){savings=new_amount;};
- const std::vector<Square>& get_buildings() const{return properties;};
+ const std::vector<Square*>& get_buildings() const{return properties;};
  void reset_properties();
 
 

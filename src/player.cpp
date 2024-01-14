@@ -31,7 +31,7 @@ int Player::remove_amount(int amount){
 void Player::reset_properties(){
     std::ofstream scrittura("prova.txt", std::ios::app);
     for(int i=0;i<properties.size();i++) {
-        properties[i].delete_property();
+        properties.at(i)->delete_property();
     }
     std::string printLog="Giocatore "+std::to_string(id)+" ha perso"+"\n";
     scrittura<<printLog;			
@@ -44,7 +44,7 @@ bool pay_someone(Player& owner,Player& borrower,const Square& square){
 	if(borrower.get_savings()-amount<0){
 		owner.add_amount(borrower.get_savings());
 		//borrower.set_savings(0);
-		std::string printLog="Giocatore "+std::to_string(borrower.get_id())+" ha pagato "+std::to_string(amount)+" a Giocatore "+std::to_string(owner.get_id())+" per pernottamento nella casella "+square.get_id()+"\n";
+		std::string printLog="Giocatore "+std::to_string(borrower.get_id())+" ha pagato "+std::to_string(borrower.get_savings())+" a Giocatore "+std::to_string(owner.get_id())+" per pernottamento nella casella "+square.get_id()+"\n";
 		scrittura<<printLog;			
 		scrittura.close();
 		return false;
@@ -107,31 +107,31 @@ int building_cost(const Square& square){
 	
 	
 int passing_cost(const Square& square){
-	char type=square.get_type();	
-	switch(type){
-	 case 'E':
-		if(square.is_house_built()==true){			
-				return 2;			
-		}else if(square.is_hotel_built()==true){
-				return 4;
-		}
-	  break;
+    char type=square.get_type();
+    switch(type){
+     case 'E':
+        if(square.is_house_built()==true){
+                return 2;
+        }else if(square.is_hotel_built()==true){
+                return 4;
+        }
+      break;
      case 'S':
-	  if(square.is_house_built()==true){			
-				return 4;			
-		}else if(square.is_hotel_built()==true){
-				return 8;
-		}
-	  break;      
-	 case 'L':
-	  if(square.is_house_built()==true){			
-				return 7;			
-		}else if(square.is_hotel_built()==true){
-				return 14;
-		}	  
-	  break;
-	 default:
-		return 0;
-	} 
-	return 0;
+      if(square.is_house_built()==true){
+                return 4;
+        }else if(square.is_hotel_built()==true){
+                return 8;
+        }
+      break;
+     case 'L':
+      if(square.is_house_built()==true){
+                return 7;
+        }else if(square.is_hotel_built()==true){
+                return 14;
+        }
+      break;
+     default:
+        return 0;
+    } 
+    return 0;
  }

@@ -69,12 +69,12 @@ Board::Board(Board&& board) {
     positions = board.get_positions();
 }
 
-std::vector<Square> Board::get_board() const
+const std::vector<Square>& Board::get_board() const
 {
     return squares;
 }
 
-std::vector<int> Board::get_positions() const
+const std::vector<int>& Board::get_positions() const
 {
     return positions;
 }

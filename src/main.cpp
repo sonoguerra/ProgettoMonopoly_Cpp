@@ -12,7 +12,7 @@
 
 int main(int argc, char* argv[]) {
     Board board;
-    
+    std::ofstream file;
 	/*
 	 * Controlli argomento passato da riga di comando
 	 */
@@ -30,12 +30,15 @@ int main(int argc, char* argv[]) {
 	 * Scelta su che tipo di Player istanziare in base al parametro passato
 	 */
     std::vector<Player*> players;
-	int max_turns = 1000;
+	int max_turns = 3000;
     
 	if(strcmp(argv[1], "computer") == 0) {
 		players = {new RobotPlayer(1), new RobotPlayer(2), new RobotPlayer(3), new RobotPlayer(4)};
 	}else{
 		players = {new HumanPlayer(1), new RobotPlayer(2), new RobotPlayer(3), new RobotPlayer(4)};
+        std::cout << std::endl;
+        std::cout << "Sei il Giocatore 1!" << std::endl;
+        std::cout << std::endl;
 	}
 	
 	std::cout << "Ordine players iniziale: ";
@@ -54,7 +57,6 @@ int main(int argc, char* argv[]) {
 	
 	bool is_game_running = true; //determina quando finisce il game
     int count_turns = 1; //contatore dei turni
-    int i=0; //indice
     
     std::cout << std::endl;
     std::cout << "---------INIZIO DELLA PARTITA!---------" << std::endl;
@@ -66,13 +68,15 @@ int main(int argc, char* argv[]) {
         
     std::cout << std::endl;
     
+    int i=0; //indice
     while(is_game_running && count_turns < max_turns) {
         int dice_value = players.at(i)->dice_throw();
+        bool has_lost = false; //indica se bisogna scrivere la fine del turno di un giocatore eliminato
         
         //stampa solo se partita con umano
         if(strcmp(argv[1], "human") == 0) {
             if(i == 0) {
-                std::cout << "----------------TURNO " << count_turns << "----------------" << std::endl;
+                std::cout << "----------------TURNO " << std::to_string(count_turns) << "----------------" << std::endl;
             }
             std::cout << "Giocatore " << players.at(i)->get_id();
             std::cout << " ha tirato i dadi con esito " << dice_value << std::endl;
@@ -148,26 +152,25 @@ int main(int argc, char* argv[]) {
                     if(position.is_house_built() || position.is_hotel_built()) {
                         bool has_paid = pay_someone(*players.at(j), *players.at(i), position); //controlla ha abbastanza soldi per pagare il pernottamento
                         
-                        //stampa solo se partita con umano
-                        if(has_paid && strcmp(argv[1], "human") == 0) {
+                        if(strcmp(argv[1], "human") == 0) {
                             std::cout << "Giocatore " << players.at(i)->get_id() << " ha pagato " << passing_cost(position) 
                             << " fiorini a Giocatore " << players.at(j)->get_id() << std::endl;
                         }
-                        //giocatore ha perso
-                        else {
-                            //TODO
-                            
+                        
+                        //se giocatore non ha pagato --> ha perso
+                        if(!has_paid) {
                             //stampa solo se partita con umano
                             if(strcmp(argv[1], "human") == 0) {
-                                std::cout << "Giocatore " << players.at(i)->get_id() << " ha perso" << std::endl;
+                                    std::cout << "Giocatore " << players.at(i)->get_id() << " ha perso" << std::endl;
                             }
-                            
+                            has_lost = true;
                             Game::delete_player(players, i);
                         }
-                    }
+                    }//se non e' stata costruita una casa o un albergo --> non fa niente
                 }
+            }
             //se il giocatore e' arrivato su una square in suo possesso --> possibile upgrade
-            }else {
+            else {
                 //controlla se giocatore ha abbastanza soldi per costruire
                 //altrimenti non fa upgrade
                 if(players.at(i)->get_savings() >= building_cost(position)) {
@@ -251,15 +254,45 @@ int main(int argc, char* argv[]) {
         //stampa solo se partita con umano
         if(strcmp(argv[1], "human") == 0)
             std::cout << std::endl;
+            
+        //se rimane un solo giocatore --> ha vinto
+        if(players.size() == 1) {
+            is_game_running = false;
+            std::cout << "Giocatore " << players.at(0)->get_id() << " ha vinto";
+        }
         
-        i = (++i)%players.size();
+        if(!has_lost) {
+            file.open("prova.txt", std::ios::app);
+            file << "Giocatore " + std::to_string(players.at(i)->get_id()) + " ha finito il turno\n";
+            file.close();
+        }
+        
+        i = (i+1) % players.size();
     }
     
     std::cout << std::endl;
-    
     std::cout << "--------- FINE DELLA PARTITA!---------" << std::endl;
     std::cout << std::endl;
     
     Game::show(players, board);
+    
+    if(is_game_running) {
+        int max_fiorini = 0;
+        
+        for(int i = 0; i < players.size(); i++) {
+            if(players.at(i)->get_savings() > max_fiorini) {
+                max_fiorini = players.at(i)->get_savings();
+            }
+        }
+        
+        for(int i = 0; i < players.size(); i++) {
+            if(players.at(i)->get_savings() == max_fiorini) {
+                std::cout << "Giocatore " << players.at(i)->get_id() << " ha vinto!" << std::endl;
+                file.open("prova.txt", std::ios::app);
+                file << "Giocatore " + std::to_string(players.at(i)->get_id()) + " ha vinto\n";
+                file.close();
+            }
+        }
+    }
 	return 0;
 }

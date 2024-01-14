@@ -12,10 +12,7 @@ RobotPlayer::RobotPlayer(){
 
 RobotPlayer::RobotPlayer(int id){
 	srand(time(NULL));
-    if(id==1)
-        savings=0;
-    else
-        savings=100;
+    savings=100;
 	//if(id>4 Or id<1){eccezione}
 	this->id=id;
 }
@@ -43,7 +40,7 @@ bool RobotPlayer::buyout(Square& square){
 		log.open("prova.txt", std::ios::app);
 		remove_amount(buying_price(square));
         square.buy_property(id);
-		properties.push_back(square);
+		properties.push_back(&square);
 		std::string printLog="Giocatore "+std::to_string(id)+" ha acquistato il terreno "+"\n";	
 		log<<printLog;	
 		log.close();

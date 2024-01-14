@@ -64,21 +64,28 @@ namespace Game{
         std::cout << b << std::endl;
         std::cout << std::endl;
         
-        std::vector<std::vector<Square>> square_print = {p.at(0)->get_buildings(), p.at(1)->get_buildings(), 
-        p.at(2)->get_buildings(), p.at(3)->get_buildings()};
+        std::vector<std::vector<Square*>> square_print;
+        
+        for(int i = 0; i < p.size(); i++) {
+            square_print.push_back(p.at(i)->get_buildings());
+        }
         
         std::cout << "PROPRIETA':" << std::endl;
         for(int i = 0; i < square_print.size(); i++) {
             std::cout << "Giocatore " << p.at(i)->get_id() << ": ";
             for(int j = 0; j < square_print.at(i).size(); j++) {
-                std::cout <<  square_print.at(i).at(j).get_id() << " ";
+                std::cout <<  square_print.at(i).at(j)->get_id() << " ";
             }
             std::cout << std::endl;
         }
         std::cout << std::endl;
         
+        std::vector<int> savings_print;
+        for(int i = 0; i < p.size(); i++) {
+            savings_print.push_back(p.at(i)->get_savings());
+        }
+        
         std::cout << "FIORINI:" << std::endl;
-        std::vector<int> savings_print = {p.at(0)->get_savings(), p.at(1)->get_savings(), p.at(2)->get_savings(), p.at(3)->get_savings()};
         for(int i = 0; i < savings_print.size(); i++) {
             std::cout << "Giocatore " << p.at(i)->get_id() << ": " << savings_print.at(i) << std::endl;
         }

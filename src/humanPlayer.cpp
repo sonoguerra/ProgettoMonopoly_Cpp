@@ -26,7 +26,7 @@ bool HumanPlayer::buyout(Square& square){
 	log.open("prova.txt", std::ios::app);
 	remove_amount(buying_price(square));
     square.buy_property(id);
-	properties.push_back(square);
+	properties.push_back(&square);
 	std::string printLog="Giocatore "+std::to_string(id)+" ha acquistato il terreno "+square.get_id()+"\n";	
 	log<<printLog;	
 	log.close();
@@ -38,8 +38,7 @@ bool HumanPlayer::build_house(Square& square){
 
 	remove_amount(building_cost(square));
 	square.upgrade();
-	std::string printLog="Giocatore "+std::to_string(id)+" ha costruito una casa sul terreno "+square.get_id()+"\n";	
-	std::cout<<square.get_id();
+	std::string printLog="Giocatore "+std::to_string(id)+" ha costruito una casa sul terreno "+square.get_id()+"\n";
 	log<<printLog;
 	log.close();
 	return true;

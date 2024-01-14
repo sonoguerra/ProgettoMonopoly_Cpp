@@ -13,8 +13,8 @@ public:
     Board();
     Board(const Board& board);
     Board(Board&& board);
-    std::vector<Square> get_board() const;
-    std::vector<int> get_positions() const;
+    const std::vector<Square>& get_board() const;
+    const std::vector<int>& get_positions() const;
     Square& square_at(int i);
     int move(Player& player, int dice);
     void buy_property(int i, int player);
