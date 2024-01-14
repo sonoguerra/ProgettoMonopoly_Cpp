@@ -23,8 +23,9 @@ HumanPlayer& HumanPlayer::operator=(const HumanPlayer& hp){
 
 
 bool HumanPlayer::buyout(Square& square){	
-	log.open("prova.txt", std::ios::app);	
+	log.open("prova.txt", std::ios::app);
 	remove_amount(buying_price(square));
+    square.buy_property(id);
 	properties.push_back(square);
 	std::string printLog="Giocatore "+std::to_string(id)+" ha acquistato il terreno "+square.get_id()+"\n";	
 	log<<printLog;	

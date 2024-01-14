@@ -58,5 +58,58 @@ namespace Game{
             std::cout << *i << " ";
         }
         std::cout << std::endl;
-    } 
+    }
+    /*
+    void human_buyout(Player& p, const Board& b, const Square& s) {
+        std::string input;
+        do{
+            input = "";
+            std::cout << "Vuoi comprare il terreno di tipo " << s.get_type() << "? (S/N/show/prop) ";
+            std::cin >> input;
+            if(input == "show" || input == "SHOW") {
+                show(p, b);
+            }else if(input == "prop" || input == "PROP") {
+                
+            }
+        }while(input != "s" && input != "S" && input != "n" && input != "N");
+        
+        if(input == "s" || input == "S") {
+            p.buyout(s);
+        }
+        
+    }*/
+    
+    void show(const std::vector<Player*>& p, const Board& b) {
+        std::cout << b << std::endl;
+        std::cout << std::endl;
+        
+        std::vector<std::vector<Square>> square_print = {p.at(0)->get_buildings(), p.at(1)->get_buildings(), 
+        p.at(2)->get_buildings(), p.at(3)->get_buildings()};
+        
+        std::cout << "PROPRIETA':" << std::endl;
+        for(int i = 0; i < square_print.size(); i++) {
+            std::cout << "Giocatore " << p.at(i)->get_id() << ": ";
+            for(int j = 0; j < square_print.at(i).size(); j++) {
+                std::cout <<  square_print.at(i).at(j).get_id() << " ";
+            }
+            std::cout << std::endl;
+        }
+        std::cout << std::endl;
+        
+        std::cout << "FIORINI:" << std::endl;
+        std::vector<int> savings_print = {p.at(0)->get_savings(), p.at(1)->get_savings(), p.at(2)->get_savings(), p.at(3)->get_savings()};
+        for(int i = 0; i < savings_print.size(); i++) {
+            std::cout << "Giocatore " << p.at(i)->get_id() << ": " << savings_print.at(i) << std::endl;
+        }
+        std::cout << std::endl;
+    }
+    
+    int find_square_owner(const std::vector<Player*>& p, const Square& s) {
+        for(int i=0; i < p.size(); i++) {
+            if(p.at(i)->get_id() == s.get_owner())
+                return i;
+        }
+        
+        return -1;
+    }
 }

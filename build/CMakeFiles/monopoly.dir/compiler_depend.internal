@@ -3,10 +3,7 @@
 
 CMakeFiles/monopoly.dir/src/board.cpp.o
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/src/board.cpp
- /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/player.h
- /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/square.h
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/board.h
- /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/exchangeMoney.h
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/player.h
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/square.h
  /usr/include/alloca.h
@@ -31,7 +28,9 @@ CMakeFiles/monopoly.dir/src/board.cpp.o
  /usr/include/bits/select.h
  /usr/include/bits/setjmp.h
  /usr/include/bits/stdint-intn.h
+ /usr/include/bits/stdio.h
  /usr/include/bits/stdio_lim.h
+ /usr/include/bits/stdlib-bsearch.h
  /usr/include/bits/stdlib-float.h
  /usr/include/bits/struct_mutex.h
  /usr/include/bits/struct_rwlock.h
@@ -207,11 +206,8 @@ CMakeFiles/monopoly.dir/src/board.cpp.o
 
 CMakeFiles/monopoly.dir/src/game.cpp.o
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/src/game.cpp
+ /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/board.h
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/player.h
- /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/square.h
- /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/humanPlayer.h
- /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/player.h
- /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/robotPlayer.h
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/square.h
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/game.h
  /usr/include/alloca.h
@@ -236,7 +232,9 @@ CMakeFiles/monopoly.dir/src/game.cpp.o
  /usr/include/bits/select.h
  /usr/include/bits/setjmp.h
  /usr/include/bits/stdint-intn.h
+ /usr/include/bits/stdio.h
  /usr/include/bits/stdio_lim.h
+ /usr/include/bits/stdlib-bsearch.h
  /usr/include/bits/stdlib-float.h
  /usr/include/bits/struct_mutex.h
  /usr/include/bits/struct_rwlock.h
@@ -277,10 +275,8 @@ CMakeFiles/monopoly.dir/src/game.cpp.o
  /usr/include/bits/wchar.h
  /usr/include/bits/wctype-wchar.h
  /usr/include/bits/wordsize.h
- /usr/include/c++/13/algorithm
  /usr/include/c++/13/backward/binders.h
  /usr/include/c++/13/bit
- /usr/include/c++/13/bits/algorithmfwd.h
  /usr/include/c++/13/bits/alloc_traits.h
  /usr/include/c++/13/bits/allocator.h
  /usr/include/c++/13/bits/basic_ios.h
@@ -323,24 +319,20 @@ CMakeFiles/monopoly.dir/src/game.cpp.o
  /usr/include/c++/13/bits/refwrap.h
  /usr/include/c++/13/bits/requires_hosted.h
  /usr/include/c++/13/bits/std_abs.h
- /usr/include/c++/13/bits/stl_algo.h
  /usr/include/c++/13/bits/stl_algobase.h
  /usr/include/c++/13/bits/stl_bvector.h
  /usr/include/c++/13/bits/stl_construct.h
  /usr/include/c++/13/bits/stl_function.h
- /usr/include/c++/13/bits/stl_heap.h
  /usr/include/c++/13/bits/stl_iterator.h
  /usr/include/c++/13/bits/stl_iterator_base_funcs.h
  /usr/include/c++/13/bits/stl_iterator_base_types.h
  /usr/include/c++/13/bits/stl_pair.h
- /usr/include/c++/13/bits/stl_tempbuf.h
  /usr/include/c++/13/bits/stl_uninitialized.h
  /usr/include/c++/13/bits/stl_vector.h
  /usr/include/c++/13/bits/streambuf.tcc
  /usr/include/c++/13/bits/streambuf_iterator.h
  /usr/include/c++/13/bits/string_view.tcc
  /usr/include/c++/13/bits/stringfwd.h
- /usr/include/c++/13/bits/uniform_int_dist.h
  /usr/include/c++/13/bits/uses_allocator.h
  /usr/include/c++/13/bits/uses_allocator_args.h
  /usr/include/c++/13/bits/utility.h
@@ -369,8 +361,6 @@ CMakeFiles/monopoly.dir/src/game.cpp.o
  /usr/include/c++/13/istream
  /usr/include/c++/13/new
  /usr/include/c++/13/ostream
- /usr/include/c++/13/pstl/execution_defs.h
- /usr/include/c++/13/pstl/glue_algorithm_defs.h
  /usr/include/c++/13/pstl/pstl_config.h
  /usr/include/c++/13/stdexcept
  /usr/include/c++/13/streambuf
@@ -422,7 +412,6 @@ CMakeFiles/monopoly.dir/src/humanPlayer.cpp.o
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/src/humanPlayer.cpp
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/player.h
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/square.h
- /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/exchangeMoney.h
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/humanPlayer.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
@@ -446,7 +435,9 @@ CMakeFiles/monopoly.dir/src/humanPlayer.cpp.o
  /usr/include/bits/select.h
  /usr/include/bits/setjmp.h
  /usr/include/bits/stdint-intn.h
+ /usr/include/bits/stdio.h
  /usr/include/bits/stdio_lim.h
+ /usr/include/bits/stdlib-bsearch.h
  /usr/include/bits/stdlib-float.h
  /usr/include/bits/struct_mutex.h
  /usr/include/bits/struct_rwlock.h
@@ -646,7 +637,9 @@ CMakeFiles/monopoly.dir/src/player.cpp.o
  /usr/include/bits/select.h
  /usr/include/bits/setjmp.h
  /usr/include/bits/stdint-intn.h
+ /usr/include/bits/stdio.h
  /usr/include/bits/stdio_lim.h
+ /usr/include/bits/stdlib-bsearch.h
  /usr/include/bits/stdlib-float.h
  /usr/include/bits/struct_mutex.h
  /usr/include/bits/struct_rwlock.h
@@ -824,7 +817,6 @@ CMakeFiles/monopoly.dir/src/robotPlayer.cpp.o
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/src/robotPlayer.cpp
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/player.h
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/square.h
- /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/exchangeMoney.h
  /media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include/robotPlayer.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
@@ -848,7 +840,9 @@ CMakeFiles/monopoly.dir/src/robotPlayer.cpp.o
  /usr/include/bits/select.h
  /usr/include/bits/setjmp.h
  /usr/include/bits/stdint-intn.h
+ /usr/include/bits/stdio.h
  /usr/include/bits/stdio_lim.h
+ /usr/include/bits/stdlib-bsearch.h
  /usr/include/bits/stdlib-float.h
  /usr/include/bits/struct_mutex.h
  /usr/include/bits/struct_rwlock.h
@@ -1047,7 +1041,9 @@ CMakeFiles/monopoly.dir/src/square.cpp.o
  /usr/include/bits/select.h
  /usr/include/bits/setjmp.h
  /usr/include/bits/stdint-intn.h
+ /usr/include/bits/stdio.h
  /usr/include/bits/stdio_lim.h
+ /usr/include/bits/stdlib-bsearch.h
  /usr/include/bits/stdlib-float.h
  /usr/include/bits/struct_mutex.h
  /usr/include/bits/struct_rwlock.h

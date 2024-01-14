@@ -38,6 +38,7 @@ bool RobotPlayer::buyout(Square& square){
 		
 		log.open("prova.txt", std::ios::app);
 		remove_amount(buying_price(square));
+        square.buy_property(id);
 		properties.push_back(square);
 		std::string printLog="Giocatore "+std::to_string(id)+" ha acquistato il terreno "+"\n";	
 		log<<printLog;	

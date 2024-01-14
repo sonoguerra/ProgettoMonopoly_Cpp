@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/media/sf_vm/C++/ProgettoFinale/ProgettoFinale/include
 
-CXX_FLAGS = 
+CXX_FLAGS = -O2
 

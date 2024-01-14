@@ -28,12 +28,18 @@ int Player::remove_amount(int amount){
 	return savings-=amount; 
 }
 
+void Player::reset_properties(){
+   for(int i=0;i<properties.size();i++)    {
+    properties[i].delete_property();
+   }
+}
+
 bool pay_someone(Player& owner,Player& borrower,const Square& square){
 	std::ofstream scrittura("prova.txt", std::ios::app);	
 	int amount=passing_cost(square);	
 	if(borrower.get_savings()-amount<0){
 		owner.add_amount(borrower.get_savings());
-		borrower.set_savings(0);
+		//borrower.set_savings(0);
 		std::string printLog="Giocatore "+std::to_string(borrower.get_id())+" ha pagato "+std::to_string(amount)+" a Giocatore "+std::to_string(owner.get_id())+" per pernottamento nella casella "+square.get_id()+"\n";
 		scrittura<<printLog;			
 		scrittura.close();

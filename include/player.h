@@ -21,11 +21,11 @@ public:
  virtual bool build_house(Square& square)=0; 
  virtual bool build_hotel(Square& square)=0; 
  virtual bool buyout(Square& square)=0;
- int get_savings(){return savings;};
- int get_id(){return id;};
+ int get_savings() const{return savings;};
+ int get_id() const{return id;};
  void set_savings(int new_amount){savings=new_amount;};
- std::vector<Square>& get_buildings(){return properties;};
- 
+ const std::vector<Square>& get_buildings() const{return properties;};
+ void reset_properties();
 
 
 };
