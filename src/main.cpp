@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
 	 * Scelta su che tipo di Player istanziare in base al parametro passato
 	 */
     std::vector<Player*> players;
-	int max_turns = 3000;
+	int max_turns = 50;
     
 	if(strcmp(argv[1], "computer") == 0) {
 		players = {new RobotPlayer(1), new RobotPlayer(2), new RobotPlayer(3), new RobotPlayer(4)};
