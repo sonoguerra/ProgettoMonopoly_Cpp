@@ -59,25 +59,6 @@ namespace Game{
         }
         std::cout << std::endl;
     }
-    /*
-    void human_buyout(Player& p, const Board& b, const Square& s) {
-        std::string input;
-        do{
-            input = "";
-            std::cout << "Vuoi comprare il terreno di tipo " << s.get_type() << "? (S/N/show/prop) ";
-            std::cin >> input;
-            if(input == "show" || input == "SHOW") {
-                show(p, b);
-            }else if(input == "prop" || input == "PROP") {
-                
-            }
-        }while(input != "s" && input != "S" && input != "n" && input != "N");
-        
-        if(input == "s" || input == "S") {
-            p.buyout(s);
-        }
-        
-    }*/
     
     void show(const std::vector<Player*>& p, const Board& b) {
         std::cout << b << std::endl;
@@ -111,5 +92,19 @@ namespace Game{
         }
         
         return -1;
+    }
+    
+    void delete_player(std::vector<Player*>& p, int index) {
+        while(index != (p.size()-1)) {
+            int i = index+1;
+            Player* p_temp = p.at(index);
+            p.at(index) = p.at(i);
+            p.at(i) = p_temp;
+            index++;
+        }
+        
+        p.at(p.size()-1)->reset_properties(); 
+        delete p.at(p.size()-1);
+        p.pop_back();
     }
 }

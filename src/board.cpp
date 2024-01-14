@@ -221,7 +221,7 @@ std::ostream& operator<<(std::ostream &o, const Board &b)
     }
     output = "\nA" + output;    //aggiunge la A prima della riga superiore
     for (i = 8; i > 0; i--) {
-        output = "\t" + std::to_string(i) + output; //scrive i numeri delle colonne sopra il tabellone
+        output = std::to_string(i) + "\t" + output; //scrive i numeri delle colonne sopra il tabellone
     }
     return o << output;
 }

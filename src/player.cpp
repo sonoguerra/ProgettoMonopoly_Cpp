@@ -29,9 +29,13 @@ int Player::remove_amount(int amount){
 }
 
 void Player::reset_properties(){
-   for(int i=0;i<properties.size();i++)    {
-    properties[i].delete_property();
-   }
+    std::ofstream scrittura("prova.txt", std::ios::app);
+    for(int i=0;i<properties.size();i++) {
+        properties[i].delete_property();
+    }
+    std::string printLog="Giocatore "+std::to_string(id)+" ha perso"+"\n";
+    scrittura<<printLog;			
+    scrittura.close();
 }
 
 bool pay_someone(Player& owner,Player& borrower,const Square& square){

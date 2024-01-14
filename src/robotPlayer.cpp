@@ -3,15 +3,19 @@
 
 
 RobotPlayer::RobotPlayer(){	
-	srand(time(NULL));	
+	srand(time(NULL));
+
 	savings=100;
 	id=0;
 }
 
 
 RobotPlayer::RobotPlayer(int id){
-	srand(time(NULL));	
-	savings=100;
+	srand(time(NULL));
+    if(id==1)
+        savings=0;
+    else
+        savings=100;
 	//if(id>4 Or id<1){eccezione}
 	this->id=id;
 }

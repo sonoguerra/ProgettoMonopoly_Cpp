@@ -11,5 +11,6 @@ namespace Game {
     //void human_buyout(Player& p, const Board& b, const Square& s);
     void show(const std::vector<Player*>& p, const Board& b);
     int find_square_owner(const std::vector<Player*>& p, const Square& s);
+    void delete_player(std::vector<Player*>& p, int index);
 }
 #endif
