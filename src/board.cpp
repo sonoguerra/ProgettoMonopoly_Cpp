@@ -209,15 +209,19 @@ std::ostream& operator<<(std::ostream &o, const Board &b)
     {
         output = board.at(i).get_content() + "\t" + output; //siccome la partenza è in posizione 0 scrive il vector in modo che essa sia in basso a destra e le altre vengano scritte in senso orario
     }
-    output = "\n" + output;
+    output = "\nH " + output;   //aggiunge l'indicatore della riga H prima della riga stessa
     for (i = 8; i < 14; i++)
     {
-        output = board.at(i).get_content() + "\t\t\t\t\t\t\t" + board.at(35 - i).get_content() + output; //concatena le caselle verticali e le loro speculari
+        output = board.at(i).get_id().at(0) + " " + board.at(i).get_content() + "\t\t\t\t\t\t\t" + board.at(35 - i).get_content() + output; //concatena le caselle verticali e le loro speculari indicando la riga prima della riga stessa
         output = "\n" + output;
     }
     for (i = 21; i > 13; i--)
     {
         output = board.at(i).get_content() + "\t" + output;
+    }
+    output = "\nA" + output;    //aggiunge la A prima della riga superiore
+    for (i = 8; i > 0; i--) {
+        output = "\t" + std::to_string(i) + output; //scrive i numeri delle colonne sopra il tabellone
     }
     return o << output;
 }
