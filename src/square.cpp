@@ -37,15 +37,13 @@ std::string Square::get_content() const
 
 bool Square::is_unassigned() const
 {
-    if (owner == 0)
-        return true;
-    return false;
+    return (owner == 0);
 }
-
-
 
 bool Square::is_house_built() const
 {
+
+
     return (content.at(2) == '*');  //il carattere in posizione 2 è l'identificativo dell'edificio costruito sulla casella
 }
 
@@ -75,12 +73,19 @@ void Square::remove_player(int player)
     content.erase(pos, 1);
 }
 
-void Square::upgrade()
+char Square::upgrade()
 {
-    if (is_house_built())   //sostituisce il carattere che rappresenta la casa con quello per l'albergo se l'upgrade viene richiesto su una casella con casa
-        content.at(2) = '^';
+    if (is_house_built()) 
+    {   
+        content.at(2) = '^';    //sostituisce il carattere che rappresenta la casa con quello per l'albergo se l'upgrade viene richiesto su una casella con casa
+        return '^';
+    }
     else if (!is_hotel_built()) //controlla che non ci sia costruito un hotel, nel qual caso l'upgrade non sortisce alcun effetto
+    {
         content.insert(2, "*"); //aggiunge nella seconda posizione il carattere rappresentativo della casa
+        return '*';
+    }
+    return ' '; //ritorna spazio se non viene eseguita la modifica
 }
 
 void Square::buy_property(int player)

@@ -20,7 +20,7 @@ public:
     void add_player(int player);
     void remove_player(int player);
     void buy_property(int player);
-    void upgrade();
+    char upgrade();
     void delete_property();
 
 private:

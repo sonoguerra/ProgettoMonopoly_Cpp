@@ -18,10 +18,10 @@ public:
     Square& square_at(int i);
     int move(Player& player, int dice);
     void buy_property(int i, int player);
-    void upgrade_property(int i);
+    char upgrade_property(int i);
     void delete_property(int i);
     void buy_property(std::string pos, int player);
-    void upgrade_property(std::string pos);
+    char upgrade_property(std::string pos);
     void delete_property(std::string pos);
     Board& operator=(const Board& board);
     Board& operator=(Board&& board);
