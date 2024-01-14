@@ -212,7 +212,7 @@ std::ostream& operator<<(std::ostream &o, const Board &b)
     output = "\nH\t" + output;   //aggiunge l'indicatore della riga H prima della riga stessa
     for (i = 8; i < 14; i++)
     {
-        output = board.at(i).get_id().substr(0, 1) + " " + board.at(i).get_content() + "\t\t\t\t\t\t\t" + board.at(35 - i).get_content() + output; //concatena le caselle verticali e le loro speculari indicando la riga prima della riga stessa
+        output = board.at(i).get_id().substr(0, 1) + "\t" + board.at(i).get_content() + "\t\t\t\t\t\t\t" + board.at(35 - i).get_content() + output; //concatena le caselle verticali e le loro speculari indicando la riga prima della riga stessa
         output = "\n" + output;
     }
     for (i = 21; i > 13; i--)
@@ -223,5 +223,6 @@ std::ostream& operator<<(std::ostream &o, const Board &b)
     for (i = 8; i > 0; i--) {
         output = std::to_string(i) + "\t" + output; //scrive i numeri delle colonne sopra il tabellone
     }
+    output = "\t" + output;
     return o << output;
 }
