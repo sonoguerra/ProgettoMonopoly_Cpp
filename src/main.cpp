@@ -1,4 +1,4 @@
-//Guerra Thomas
+//Author: Guerra Thomas
 
 #include <iostream>
 #include <vector>
@@ -266,12 +266,17 @@ int main(int argc, char* argv[]) {
             is_game_running = false;
         }
         
-        std::cout << "Giocatore " << players.at(i)->get_id() << " ha finito il turno" << std::endl;
-        //stampa solo se partita con umano
-        if(strcmp(argv[1], "human") == 0)
-            std::cout << std::endl;
         
-        i = (i+1) % players.size();
+        
+        //stampa solo se partita con umano
+        if(strcmp(argv[1], "human") == 0) {
+            std::cout << "Giocatore " << players.at(i)->get_id() << " ha finito il turno" << std::endl;
+            std::cout << std::endl;
+        }
+        
+        players.at(i)->end_turn();
+        
+        i = (i+1) % players.size(); //incrementa indice dei giocatori
     }
     
     std::cout << std::endl;
@@ -293,10 +298,8 @@ int main(int argc, char* argv[]) {
     for(int i = 0; i < players.size(); i++) {
         if(players.at(i)->get_savings() == max_fiorini) {
             std::cout << "Giocatore " << players.at(i)->get_id() << " ha vinto!" << std::endl;
-            //TODO
-            file.open("prova.txt", std::ios::app);
-            file << "Giocatore " + std::to_string(players.at(i)->get_id()) + " ha vinto\n";
-            file.close();
+            
+            players.at(i)->winner_log();
         }
     }
     

@@ -44,11 +44,18 @@ void Player::reset_properties(){
     log<<printLog;			
     log.close();
 }
+
 //Metodo che scrive su log quale giocatore ha vinto!
 void Player::winner_log(){
 	log.open("log.txt", std::ios::app);
-	log << "Giocatore " + std::to_string(players.at(i)->get_id()) + " ha vinto\n";
+	log << "Giocatore " + std::to_string(id) + " ha vinto\n";
 	log.close();
+}
+
+void Player::end_turn(){
+    log.open("log.txt", std::ios::app);
+    log << "Giocatore " + std::to_string(id) + " ha finito il turno\n";
+    log.close();
 }
 
 /*Metodo che rimuove una quantita' di denaro dal fondo dal giocatore finito in proprieta' altrui, determinata dalla square passata,
@@ -57,25 +64,25 @@ void Player::winner_log(){
   Il metodo ritorna un booleano per segnalare se la transazione e' avvenuta per completo o il debitore ha finito i soldi.
   Nel log viene riportata la transazione effettuata. */
 bool pay_someone(Player& owner,Player& borrower,const Square& square){
-	log.open("log.txt", std::ios::app);	
+	std::ofstream log("log.txt", std::ios::app);	
 	int amount=passing_cost(square);	
 	if(borrower.get_savings()-amount<0){
 		owner.add_amount(borrower.get_savings());		
-		std::string printLog="Giocatore "+std::to_string(borrower.get_id())+" ha pagato "+std::to_string(borrower.get_savings())+" a Giocatore "+std::to_string(owner.get_id())+" per pernottamento nella casella "+square.get_id()+"\n";
+		std::string printLog="Giocatore "+std::to_string(borrower.get_id())+" ha pagato "+std::to_string(borrower.get_savings())+" fiorini a Giocatore "+std::to_string(owner.get_id())+" per pernottamento nella casella "+square.get_id()+"\n";
 		log<<printLog;			
 		log.close();
 		return false;
 	}
     owner.add_amount(amount);
 	borrower.remove_amount(amount);
-	std::string printLog="Giocatore "+std::to_string(borrower.get_id())+" ha pagato "+std::to_string(amount)+" a Giocatore "+std::to_string(owner.get_id())+" per pernottamento nella casella"+square.get_id()+"\n";
+	std::string printLog="Giocatore "+std::to_string(borrower.get_id())+" ha pagato "+std::to_string(amount)+" fiorini a Giocatore "+std::to_string(owner.get_id())+" per pernottamento nella casella "+square.get_id()+"\n";
 	log<<printLog;	
 	log.close();
 	return true;
 }
 //Metodo che aggiunge 20 fiorini al saldo del player una volta passato dal via, la transazione viene riportata nel log.
 void passing_prize(Player& p1){
-	log.open("log.txt", std::ios::app);
+	std::ofstream log("log.txt", std::ios::app);
 	p1.add_amount(20);
 	std::string printLog="Giocatore "+std::to_string(p1.get_id())+" è passato dal via e ha ritirato 20 fiorini"+"\n";
 	log<<printLog;

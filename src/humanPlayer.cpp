@@ -9,7 +9,7 @@ HumanPlayer::HumanPlayer(){
 HumanPlayer::HumanPlayer(int id){
 	savings=100;
 	this->id=id;
-	if(id>4 Or id<1){throw std::invalid_argument("Invalid argument: specified id must be between 1 and 4.");
+	if(id>4 || id<1) throw std::invalid_argument("Invalid argument: specified id must be between 1 and 4.");
 }
 //Costruttore di copia HumanPlayer
 HumanPlayer::HumanPlayer(const HumanPlayer& hp){

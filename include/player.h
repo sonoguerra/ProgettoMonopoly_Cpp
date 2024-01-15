@@ -32,6 +32,7 @@ public:
  const std::vector<Square*>& get_buildings() const{return properties;};
  void reset_properties();
  void winner_log();
+ void end_turn();
 };
 
 //helper function per Player, utili per scambio di informazioni con altri player o per interagire con le square della Board

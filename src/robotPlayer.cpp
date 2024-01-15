@@ -12,7 +12,7 @@ RobotPlayer::RobotPlayer(){
 RobotPlayer::RobotPlayer(int id){
 	srand(time(NULL));
 	savings=100;
-	if(id>4 Or id<1){throw std::invalid_argument("Id del Player non compreso tra 1 e 4");}
+	if(id>4 || id<1){throw std::invalid_argument("Id del Player non compreso tra 1 e 4");}
 	this->id=id;
 }
 //Costruttore di copia RobotPlayer

@@ -1,9 +1,12 @@
-//Guerra Thomas
+//Author: Guerra Thomas
+
 #include "../include/game.h"
 #include <iostream>
 
 namespace Game{
+    //funzione per stabilire l'ordine dei giocatori in base ai dadi tirati
     void players_order(std::vector<Player*>& p){
+        //vector di dadi
         std::vector<int> dice = {p.at(0)->dice_throw(), p.at(1)->dice_throw(), p.at(2)->dice_throw(), p.at(3)->dice_throw()};
 
         std::cout << "Tiro dadi iniziale: ";
@@ -12,8 +15,12 @@ namespace Game{
         }
         std::cout << std::endl;
         
-        int i = 0;
-        int end = dice.size();
+        int i = 0; //indice di inizio vector
+        int end = dice.size(); //indice di fine vector
+        
+        //ciclo che effettua sort di dice e p 
+        //ogni ciclo vengono fissati i valori non uguali all'inizio o fine del vector
+        //mentre se i giocatori hanno tirato uguale --> ritirano dado
         while(i < (end-1)) {
             //sort di p e dice della porzione [i, end[
             for(int j = i; j < end-1; j++) {
@@ -25,7 +32,7 @@ namespace Game{
                         
                         Player* p_temp = p.at(j);
                         p.at(j) = p.at(k);
-                        p.at(k) = p_temp; //MEMORY LEAK?
+                        p.at(k) = p_temp;
                     }
                 }
             }
@@ -64,12 +71,13 @@ namespace Game{
         std::cout << b << std::endl;
         std::cout << std::endl;
         
+        //vector delle square possedute dai giocatori
         std::vector<std::vector<Square*>> square_print;
-        
         for(int i = 0; i < p.size(); i++) {
             square_print.push_back(p.at(i)->get_buildings());
         }
         
+        //stampa le square possedute dai giocari
         std::cout << "PROPRIETA':" << std::endl;
         for(int i = 0; i < square_print.size(); i++) {
             std::cout << "Giocatore " << p.at(i)->get_id() << ": ";
@@ -80,11 +88,13 @@ namespace Game{
         }
         std::cout << std::endl;
         
+        //vector che contiene i savings dei giocatori
         std::vector<int> savings_print;
         for(int i = 0; i < p.size(); i++) {
             savings_print.push_back(p.at(i)->get_savings());
         }
         
+        //stampa i savings dei giocatori
         std::cout << "FIORINI:" << std::endl;
         for(int i = 0; i < savings_print.size(); i++) {
             std::cout << "Giocatore " << p.at(i)->get_id() << ": " << savings_print.at(i) << std::endl;
@@ -92,15 +102,17 @@ namespace Game{
         std::cout << std::endl;
     }
     
+    //function che trova la square associata al giocatore
     int find_square_owner(const std::vector<Player*>& p, const Square& s) {
         for(int i=0; i < p.size(); i++) {
             if(p.at(i)->get_id() == s.get_owner())
                 return i;
         }
         
-        return -1;
+        return -1; 
     }
     
+    //rimuove il giocatore nel vector di indice index, liberando la memoria
     void delete_player(std::vector<Player*>& p, int index) {
         while(index != (p.size()-1)) {
             int i = index+1;

@@ -86,6 +86,7 @@ Square& Board::square_at(int i)
 
 int Board::move(Player& player, int dice)
 {
+    std::ofstream log("log.txt", std::ios::app);
     int player_id = player.get_id();
     int start = positions[player_id];
     squares.at(start).remove_player(player_id); //rimuove il giocatore dalla casella di partenza
@@ -93,6 +94,8 @@ int Board::move(Player& player, int dice)
     squares.at(end).add_player(player_id); //e lo riaggiunge nella casella in cui termina il turno
     positions[player_id] = end;
     if (start > 15 && end < 12) passing_prize(player);  //assegna al giocatore i 20 fiorini quando con il suo tiro passa dal via
+    log << "Giocatore " << player.get_id() << " e' arrivato alla casella " << convert_position(end) << "\n";
+    log.close();
     return end; // ritorna la posizione della casella dove finisce il giocatore.
 }
 
