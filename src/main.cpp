@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
     std::vector<Player*> players;
     
     //numero massimo di turni giocabili
-	int max_turns = 300;
+	int max_turns = 50;
     
     //scelta su che tipo di Player istanziare in base al parametro passato
 	if(strcmp(argv[1], "computer") == 0) {
@@ -109,7 +109,7 @@ int main(int argc, char* argv[]) {
                     
                     //stampa solo se partita con umano
                     if(strcmp(argv[1], "human") == 0) {
-                        std::cout << "Giocatore " << players.at(i)->get_id() << " e' arrivato in un terreno di Giocatore" 
+                        std::cout << "Giocatore " << players.at(i)->get_id() << " e' arrivato in un terreno di Giocatore " 
                         << players.at(j)->get_id() << std::endl;
                     }
                     
