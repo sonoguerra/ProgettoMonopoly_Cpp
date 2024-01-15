@@ -1,7 +1,9 @@
+//Author: Coletto Damiano
 #ifndef HUMANPLAYER_H
 #define HUMANPLAYER_H
 #include "../include/player.h"
 #include "../include/square.h"
+//Classe derivata da Player che permette una differente implementazione rispetto alla versione robotPlayer
 
 class HumanPlayer:public Player{
 public:
