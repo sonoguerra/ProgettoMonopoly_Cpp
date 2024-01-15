@@ -112,6 +112,7 @@ namespace Game{
         
         p.at(p.size()-1)->reset_properties(); 
         delete p.at(p.size()-1);
+        p.at(p.size()-1) = nullptr;
         p.pop_back();
     }
 }
